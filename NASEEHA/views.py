@@ -98,16 +98,5 @@ def signup(request):
             role = rl,
             )
             return redirect("login")
-        # new_user = cur_user(
-        #     username = request.POST.get("username"),
-        #     age = request.POST.get("age"),
-        #     sex = request.POST.get("gender"),
-        #     address = request.POST.get("address"),
-        #     email = request.POST.get("email"),
-        #     password = request.POST.get("password"),
-        #     role = request.POST.get("role"),
-        # )
-        # print("new_user",new_user.get_username(),new_user)
-        # render(request,"singup.html")
     
     return render(request,"signup.html")

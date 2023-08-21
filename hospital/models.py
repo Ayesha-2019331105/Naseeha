@@ -42,6 +42,8 @@ class UserP(AbstractUser):
     demo = models.CharField(max_length=50, null= True)
     role = models.IntegerField(default=0)
     login_status = models.BooleanField(default=False)
+
+    
 class Patient(models.Model):
     Patient_id = models.AutoField(primary_key=True)
     user = models.OneToOneField(UserP,on_delete=models.CASCADE,null=True,blank=True,related_name='patient')
