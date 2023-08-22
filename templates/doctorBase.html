@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="icon" href="/static/image/therapy.png" type="image/png">
+    <title>doctor</title>
+    <style>
+        .list-group-item {
+            border: 1px solid black;
+            border-radius: 0;
+            background-color: #FFBF00;
+            color: black;
+            width: 250px;
+            font-weight: bold;
+        }
+
+        /* Specific styles for each list item */
+        .list-group-item.edit-profile {
+            border: 1px solid black;
+            border-radius: 0;
+            background-color: white;
+            color: black;
+            width: 250px;
+            font-weight: bold;
+        }
+
+        .list-group-item.edit-profile:hover {
+            border: 1px solid black;
+            border-radius: 0;
+            background-color: #FFBF00;
+            color: black;
+            width: 250px;
+            font-weight: bold;
+        }
+
+        .list-group-item.patient-list {
+            border: 1px solid black;
+            border-radius: 0;
+            background-color: white;
+            color: black;
+            width: 250px;
+            font-weight: bold;
+        }
+
+        .list-group-item.patient-list:hover {
+            border: 1px solid black;
+            border-radius: 0;
+            background-color: #FFBF00;
+            color: black;
+            width: 250px;
+            font-weight: bold;
+        }
+
+        .list-group-item.appointments {
+            border: 1px solid black;
+            border-radius: 0;
+            background-color: white;
+            color: black;
+            width: 250px;
+            font-weight: bold;
+        }
+
+        .list-group-item.appointments:hover {
+            border: 1px solid black;
+            border-radius: 0;
+            background-color: #FFBF00;
+            color: black;
+            width: 250px;
+            font-weight: bold;
+        }
+
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "all_profile_header.html" %}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 border-right">
+                <div class="d-flex flex-column text-center align-items-center p-1 py-5"><img
+                        class="container-fluid mt-5 mb-2" src="/static/image/doctor.png">
+                    <div class="text-right">
+                        <div class="list-group dashboard-menu">
+                            <a href="/patientlist" class="list-group-item list-group-item-action patient-list">
+                                Patient list
+                            </a>
+                            <a href="" class="list-group-item list-group-item-action appointments">
+                                Appointments
+                            </a>
+                        </div>
+                    </div> <br>
+                    <div class="row mb-3">
+                        <Label>Add CV:</Label><br>
+                        <input type="file" class="form-control" name="cv" />
+
+                    </div>
+                </div>
+            </div>
+            {% block start %}
+
+
+
+
+            {% endblock %}
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>

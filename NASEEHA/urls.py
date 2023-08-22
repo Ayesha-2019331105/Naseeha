@@ -17,17 +17,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from NASEEHA import views
-# from signup.views import signaction
-from hospital.views import signup, profile, editprofile, forms
+from doctors.views import *
+from hospital.views import *
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
-    path('',views.homepage, name='homepage'),
-    path('login/',views.login_user, name='login'),
-    path('services/',views.services, name='services'),
-    path('signup/',views.signup, name='signup'),
-    path('signaction/',signup, name='signaction'),
-    path('authenticate_userp/',views.authenticate_userp),
-    path('user_profile/',profile,name='user_profile'),
-    path('edit_profile/',editprofile, name='edit_profile'),
-    path('survey/',forms, name='survey')
+    path('', views.homepage, name='homepage'),
+    path('login/', views.login_user, name='login'),
+    path('services/', views.services, name='services'),
+    path('signup/', views.signup, name='signup'),
+    path('authenticate_userp/', views.authenticate_userp),
+    path('user_profile/', profile, name='user_profile'),
+    path('edit_profile/', editprofile, name='editprofile'),
+    path('handle_edit_profile/', handle_editprofile, name='handleedit'),
+    path('survey/', forms, name='survey'),
+    path('logout/', views.logout, name='logout'),
+    path("doctorBase/", doctorBase),
+    path("doctor_profile/", doctor_profile, name='doctor_profile'),
+    path("doctor_edit_profile/", doctor_edit_profile, name='doc_edit_profile'),
+    path("patientlist/", patientlist, name='patientlist'),
+    path("hospital/", hospital, name="hospital"),
+    path("hospitaldetails/", hospitaldetails, name="hospitaldetails"),
 ]

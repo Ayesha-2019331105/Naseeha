@@ -1,0 +1,101 @@
+{% extends "doctorBase.html" %}
+{% block start %}
+
+
+<div class="col-md-8 border-right">
+    <div class="py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right"><b>Edit Profile</b></h4>
+        </div>
+        <form action="" method="post">
+
+            <div class="row mt-3">
+                <div class="col-md-12"><label class="labels">Name</label><br>
+
+                </div>
+
+                <div class="col-md-12"><label class="labels">Email</label>
+
+                </div>
+
+
+                <div class="col-md-12"><label class="labels">Address</label>
+                    <!-- {% if request.session.cur_user.address %} -->
+                    <input type="text" class="form-control" value="{{request.session.cur_user.address}}" name="address"
+                        required>
+                    <!-- {% else %} -->
+                    <input type="text" placeholder="Enter Your Address" name="address" required>
+                    <!-- {% endif %} -->
+                </div>
+
+                <div class="col-md-12"><label class="labels">Phone number</label>
+                    <!-- {% if request.session.cur_user.address %} -->
+                    <input type="text" class="form-control" value="{{request.session.cur_user.phone_number}}"
+                        name="phone_number" required>
+                    <!-- {% else %} -->
+                    <input type="text" placeholder="Enter Your Phone Number" name="phone_number" required>
+                    <!-- {% endif %} -->
+                </div>
+
+                <div class="col-md-12"><label class="labels">NID</label>
+                    <!-- {% if request.session.cur_user.address %} -->
+                    <input type="text" class="form-control" value="{{request.session.cur_user.NID}}" name="nid"
+                        required>
+                    <!-- {% else %} -->
+                    <input type="text" placeholder="Enter Your NID" name="nid" required>
+                    <!-- {% endif %} -->
+                </div>
+
+                <div class="col-md-12"><label class="labels">Department</label>
+                    <!-- {% if request.session.cur_user.address %} -->
+                    <input type="text" class="form-control" value="{{request.session.cur_user.department}}"
+                        name="department" required>
+                    <!-- {% else %} -->
+                    <input type="text" placeholder="Enter Your Department" name="department" required>
+                    <!-- {% endif %} -->
+                </div>
+
+                <div class="col-md-12"><label class="labels">Workplace</label>
+                    <!-- {% if request.session.cur_user.address %} -->
+                    <input type="text" class="form-control" value="{{request.session.cur_user.work_place}}"
+                        name="work_place" required>
+                    <!-- {% else %} -->
+                    <input type="text" placeholder="Enter Your Work Place" name="work_place" required>
+                    <!-- {% endif %} -->
+                </div>
+
+                <div class="col-md-12"><label class="labels">Visiting hour</label>
+                    <!-- {% if request.session.cur_user.address %} -->
+                    <input type="text" class="form-control" value="{{request.session.cur_user.visiting_hour}}"
+                        name="visiting_hour" required>
+                    <!-- {% else %} -->
+                    <input type="text" placeholder="Enter Your Visiting Hour" name="visiting_hour" required>
+                    <!-- {% endif %} -->
+                </div>
+
+                <div class="col-md-12"><label class="labels">Degree</label>
+                    <!-- {% if request.session.cur_user.address %} -->
+                    <input type="text" class="form-control" value="{{request.session.cur_user.degree}}" name="degree"
+                        required>
+                    <!-- {% else %} -->
+                    <input type="text" placeholder="Enter Your Degree" name="degree" required>
+                    <!-- {% endif %} -->
+                </div>
+
+                <div class="col-md-12"><label class="labels">Designation</label>
+                    <!-- {% if request.session.cur_user.address %} -->
+                    <input type="text" class="form-control" value="{{request.session.cur_user.designation}}"
+                        name="designation" required>
+                    <!-- {% else %} -->
+                    <input type="text" placeholder="Enter Your designation" name="designation" required>
+                    <!-- {% endif %} -->
+                </div>
+
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save
+                        Profile</button></div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

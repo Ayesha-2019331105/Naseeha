@@ -1,0 +1,43 @@
+{% extends "doctorBase.html" %}
+{% block start %}
+
+<div class="col-md-8 border-right">
+    <div class="py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right"><b>Patient List</b></h4>
+        </div>
+
+        <div class="row mt-3">
+            <table class="container">
+                <tr>
+                    <th>No</th>
+                    <th>patient_id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Serial_number</th>
+                    <th>Description</th>
+                </tr>
+                <!-- {% for i in people %} -->
+                <tr>
+                    <!-- <td>{{forloop.counter}}</td>
+                    <td>{{i.patient_id}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.age}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.Serial_number}}</td> -->
+                    <!-- <td> 1 </td>
+                    <td> 76 </td>
+                    <td> ASDFG </td>
+                    <td> 20 </td>
+                    <td> user@gmail.com </td>
+                    <td>12</td> -->
+                    <td> <a href=""> view </a> </td>
+                </tr>
+                <!-- {% endfor %} -->
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
