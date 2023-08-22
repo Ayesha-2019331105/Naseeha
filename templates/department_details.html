@@ -1,0 +1,23 @@
+{% extends "hospital_doctor_base.html" %}
+{% block start %}
+
+
+
+<div class="row mb-4">
+    <div class="border-right py-5">
+        <h4 class="text-center"><b>Our doctors</b></h4>
+    </div>
+    {% for i in "0123" %}
+    <div class="col-md-4">
+        <div class="card">
+            <img src="/static/images/baek.jpg" class="card-img-top" alt="..." height="200" width="300">
+
+            <div class="mb-5 d-flex justify-content-around">
+                <a href="#" class="card-link">Click here</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

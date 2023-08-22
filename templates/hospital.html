@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Row Example</title>
+    <link rel="icon" href="/static/image/therapy.png" type="image/png">
+    <title>hospital</title>
     <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 </head>
 
 <body>
-    {{ request.session.cur_user.email }}
+    <!-- {{ request.session.cur_user.email }} -->
     {% if request.session.cur_user.email != null %}
     {% include "all_profile_header.html" %}
     {% else %}
@@ -34,13 +35,14 @@
         </div>
         <!-- Row with Columns -->
         <div class="row mb-4">
-            {% for i in "0123" %}
+            {% for i in h_info %}
             <div class="col-md-4">
                 <div class="card">
-                    <img src="/static/images/baek.jpg" class="card-img-top" alt="..." height="200" width="300">
-
+                    {% with url="/static/image/"|add:i.email|add:".jpg" %}
+                    <img src="{{url}}" class="card-img-top" alt="..." height="200" width="300">
+                    {% endwith %}
                     <div class="mb-5 d-flex justify-content-around">
-                        <a href="/hospitaldetails" class="card-link">Click here</a>
+                        <a href="/hospitaldetails?name={{ i.name }}" class="card-link">Click here</a>
                     </div>
                 </div>
             </div>

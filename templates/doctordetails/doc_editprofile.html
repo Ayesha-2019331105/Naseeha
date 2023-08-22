@@ -7,88 +7,132 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h4 class="text-right"><b>Edit Profile</b></h4>
         </div>
-        <form action="" method="post">
 
+        <form action="/handle_doctor_edit_profile/" method="post">
+            {% csrf_token %}
             <div class="row mt-3">
                 <div class="col-md-12"><label class="labels">Name</label><br>
-
+                    {% if request.session.cur_user.name %}
+                    <input type="text" class="form-control" value='{{request.session.cur_user.name}}' name="name"
+                        required>
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="Enter Your Name" name="name" required>
+                    {% endif %}
                 </div>
 
                 <div class="col-md-12"><label class="labels">Email</label>
-
+                    {% if request.session.cur_user.email %}
+                    <input type="text" class="form-control" value='{{request.session.cur_user.email}}' name="email"
+                        required readonly>
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="Enter Your Email" name="email" required>
+                    {% endif %}
                 </div>
 
 
                 <div class="col-md-12"><label class="labels">Address</label>
-                    <!-- {% if request.session.cur_user.address %} -->
+                    {% if request.session.cur_user.address %}
                     <input type="text" class="form-control" value="{{request.session.cur_user.address}}" name="address"
                         required>
-                    <!-- {% else %} -->
-                    <input type="text" placeholder="Enter Your Address" name="address" required>
-                    <!-- {% endif %} -->
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="Enter Your Address" name="address" required>
+                    {% endif %}
                 </div>
 
                 <div class="col-md-12"><label class="labels">Phone number</label>
-                    <!-- {% if request.session.cur_user.address %} -->
+                    {% if request.session.cur_user.phone_number %}
                     <input type="text" class="form-control" value="{{request.session.cur_user.phone_number}}"
                         name="phone_number" required>
-                    <!-- {% else %} -->
-                    <input type="text" placeholder="Enter Your Phone Number" name="phone_number" required>
-                    <!-- {% endif %} -->
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="Enter Your Phone Number" name="phone_number"
+                        required>
+                    {% endif %}
                 </div>
 
                 <div class="col-md-12"><label class="labels">NID</label>
-                    <!-- {% if request.session.cur_user.address %} -->
-                    <input type="text" class="form-control" value="{{request.session.cur_user.NID}}" name="nid"
+                    {% if request.session.cur_user.nid %}
+                    <input type="text" class="form-control" value="{{request.session.cur_user.nid}}" name="nid"
                         required>
-                    <!-- {% else %} -->
-                    <input type="text" placeholder="Enter Your NID" name="nid" required>
-                    <!-- {% endif %} -->
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="Enter Your NID" name="nid" required>
+                    {% endif %}
+                </div>
+
+                <div class="col-md-12">
+                    <label for="department_label">Choose your expertise:</label>
+                    <div class="form-control">
+                        <div class="dropdown">
+                            <select id="department" name="expertise" required>
+                                <option value="Psychiatrist" name="expertise" required>Psychiatrist</option>
+                                <option value="Clinical Psychologist" name="expertise" required>Clinical Psychologist
+                                </option>
+                                <option value="Therapist" name="expertise" required>Therapist</option>
+                                <option value="Marriage and Family Therapist (MFT)" name="expertise" required>Marriage
+                                    and Family Therapist (MFT)
+                                </option>
+                                <option value="Child and Adolescent Psychiatrist" name="expertise" required>Child and
+                                    Adolescent Psychiatrist
+                                </option>
+                                <option value="Neuropsychologist" name="expertise" required>Neuropsychologist</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12"><label class="labels">Workplace</label>
+                    <div class="form-control">
+                        <div class="dropdown">
+                            <select id="department" name="work_place" required>
+                                {% for i in hospital_info %}
+                                <option value='{{i.name}}' name="work_place" required>{{i.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-12"><label class="labels">Department</label>
-                    <!-- {% if request.session.cur_user.address %} -->
-                    <input type="text" class="form-control" value="{{request.session.cur_user.department}}"
-                        name="department" required>
-                    <!-- {% else %} -->
-                    <input type="text" placeholder="Enter Your Department" name="department" required>
-                    <!-- {% endif %} -->
-                </div>
-
-                <div class="col-md-12"><label class="labels">Workplace</label>
-                    <!-- {% if request.session.cur_user.address %} -->
-                    <input type="text" class="form-control" value="{{request.session.cur_user.work_place}}"
-                        name="work_place" required>
-                    <!-- {% else %} -->
-                    <input type="text" placeholder="Enter Your Work Place" name="work_place" required>
-                    <!-- {% endif %} -->
+                    <div class="form-control">
+                        <div class="dropdown">
+                            <select id="department" name="dept_name" required>
+                                {% for i in dept|slice:":6" %}
+                                <option value={{i.hospital_department_name}} name="dept_name" required>
+                                    {{i.hospital_department_name}}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="col-md-12"><label class="labels">Visiting hour</label>
-                    <!-- {% if request.session.cur_user.address %} -->
+                    {% if request.session.cur_user.visiting_hour %}
                     <input type="text" class="form-control" value="{{request.session.cur_user.visiting_hour}}"
                         name="visiting_hour" required>
-                    <!-- {% else %} -->
-                    <input type="text" placeholder="Enter Your Visiting Hour" name="visiting_hour" required>
-                    <!-- {% endif %} -->
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="Enter Your Visiting Hour" name="visiting_hour"
+                        required>
+                    {% endif %}
                 </div>
 
                 <div class="col-md-12"><label class="labels">Degree</label>
-                    <!-- {% if request.session.cur_user.address %} -->
+                    {% if request.session.cur_user.degree %}
                     <input type="text" class="form-control" value="{{request.session.cur_user.degree}}" name="degree"
                         required>
-                    <!-- {% else %} -->
-                    <input type="text" placeholder="Enter Your Degree" name="degree" required>
-                    <!-- {% endif %} -->
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="Enter Your Degree" name="degree" required>
+                    {% endif %}
                 </div>
 
                 <div class="col-md-12"><label class="labels">Designation</label>
-                    <!-- {% if request.session.cur_user.address %} -->
+                    {% if request.session.cur_user.designation %}
                     <input type="text" class="form-control" value="{{request.session.cur_user.designation}}"
                         name="designation" required>
-                    <!-- {% else %} -->
-                    <input type="text" placeholder="Enter Your designation" name="designation" required>
-                    <!-- {% endif %} -->
+                    {% else %}
+                    <input type="text" class="form-control" placeholder="Enter Your designation" name="designation"
+                        required>
+                    {% endif %}
                 </div>
 
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save

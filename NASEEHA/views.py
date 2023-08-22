@@ -19,6 +19,14 @@ def login_user(request):
     return render(request, 'login_user.html')
 
 
+def admin_profile(request):
+    return render(request, 'admin_user.html')
+
+
+def add_hospital(request):
+    return render(request, 'add_hospital.html')
+
+
 @csrf_exempt
 def logout(request):
     print('here')
@@ -60,6 +68,8 @@ def authenticate_userp(request):
                     cur_user.login_status = 1
                     cur_user.save()
                     print("login successfull")
+                    if (cur_user.is_superuser):
+                        return redirect('admin_profile')
                     if (item.role == 1):
                         cur_user = Patient.objects.get(email=item.email)
                         request.session['cur_user'] = {
@@ -86,6 +96,13 @@ def authenticate_userp(request):
                             'address': cur_user.address,
                             'name': cur_user.name,
                             'login_status': 'online',
+                            'phone_number': cur_user.phone_number,
+                            'nid': cur_user.nid,
+                            'visiting_hour': cur_user.visiting_hour,
+                            'degree': cur_user.degree,
+                            'designation': cur_user.designation,
+                            'work_place': cur_user.work_place,
+                            'dob': cur_user.dob,
                         }
                         cur_user.login_status = 'online'
                         cur_user.save()

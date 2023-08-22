@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render
 # from django.contrib.auth import login,logout,authenticate
 # from django.contrib.auth.models import User
-from .models import Patient, UserP
+from .models import *
+from doctors.models import *
 # from .forms import PatientForm,CustomUserCreationForm
 from django.views.decorators.csrf import csrf_exempt
 
@@ -66,13 +67,75 @@ def handle_editprofile(request):
     return redirect('user_profile')
 
 
+def assign_dept(request):
+    dept_list = ['Psychiatry', 'Clinical Psychology', 'Therapy',
+                 'Neuropsychology', 'Drug Addiction Treatment', 'Trauma Center']
+    print(request.session['cur_hospital'])
+    name = Hospital_Information.objects.get(
+        name=request.session['cur_hospital'])
+    for i in dept_list:
+        hospital_dept = hospital_department.objects.create(
+            hospital_department_name=i,
+            hospital=name,
+        )
+        print(hospital_dept)
+    return redirect('admin_profile')
+
+
+@csrf_exempt
+def save_hospital(request):
+    print("jdf")
+    if (request.method == "POST"):
+        email = request.POST.get('email')
+        print(email)
+        hospital = Hospital_Information.objects.all()
+        dup = False
+        for item in hospital:
+            if (item.email == email):
+                dup = True
+                print('hospital already added')
+                return redirect('admin_profile')
+        if (not (dup)):
+            print('in save')
+            hospital1 = Hospital_Information.objects.create(
+                name=request.POST.get("name"),
+                address=request.POST.get("address"),
+                email=request.POST.get("email"),
+                phone_number=request.POST.get("hotline"),
+                hospital_type=request.POST.get("hospital_type"),
+                general_bed_no=request.POST.get("general_bed_no"),
+                available_icu_no=request.POST.get("available_bed_no"),
+                regular_cabin_no=request.POST.get("regular_cabin_no"),
+                emergency_cabin_no=request.POST.get("emergency_cabin_no"),
+                vip_cabin_no=request.POST.get("vip_cabin_no"),
+            )
+            hospital1.save()
+            request.session['cur_hospital'] = request.POST.get('name')
+            print(request.session['cur_hospital'])
+            return redirect('assign_dept')
+    return redirect('admin_profile')
+
+
 def forms(request):
     return render(request, "forms.html")
 
 
 def hospital(request):
-    return render(request, "hospital.html")
+    hospital_info = Hospital_Information.objects.all()
+    context = {
+        'h_info': hospital_info,
+    }
+    return render(request, "hospital.html", context)
 
 
 def hospitaldetails(request):
-    return render(request, "hospitaldetails.html")
+    h_info = Hospital_Information.objects.get(name=request.GET['name'])
+    dept = hospital_department.objects.filter(hospital=h_info)
+    doc = doctor_info.objects.filter(
+        work_place=h_info, department_name__in=dept)
+    context = {
+        'h_info': h_info,
+        'dept': dept,
+        'doc': doc,
+    }
+    return render(request, "hospitaldetails.html", context)

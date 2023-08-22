@@ -1,5 +1,5 @@
 from django.db import models
-from hospital.models import hospital_department, specialization, UserP, Patient
+from hospital.models import *
 
 # Create your models here.
 
@@ -32,8 +32,6 @@ class doctor_info(models.Model):
         max_length=70, choices=DOC_TYPE, null=True, blank=True)
     department_name = models.ForeignKey(
         hospital_department, on_delete=models.SET_NULL, null=True, blank=True)
-    specialization = models.ForeignKey(
-        specialization, on_delete=models.SET_NULL, null=True, blank=True)
     login_status = models.CharField(
         max_length=200, null=True, blank=True, default="offline")
 

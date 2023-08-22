@@ -16,25 +16,37 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from NASEEHA import views
+from NASEEHA.views import *
 from doctors.views import *
 from hospital.views import *
 urlpatterns = [
-    path('admin/', admin.site.urls, name='admin'),
-    path('', views.homepage, name='homepage'),
-    path('login/', views.login_user, name='login'),
-    path('services/', views.services, name='services'),
-    path('signup/', views.signup, name='signup'),
-    path('authenticate_userp/', views.authenticate_userp),
+    # path('admin/', admin.site.urls, name='admin'),
+    # naseeha
+    path('', homepage, name='homepage'),
+    path('login/', login_user, name='login'),
+    path('services/', services, name='services'),
+    path('signup/', signup, name='signup'),
+    path('authenticate_userp/', authenticate_userp),
+    path('logout/', logout, name='logout'),
+    path("admin_profile/", admin_profile, name='admin_profile'),
+    path("add_hospital", add_hospital, name='add_hospital'),
+
+
+    # hospital
     path('user_profile/', profile, name='user_profile'),
     path('edit_profile/', editprofile, name='editprofile'),
     path('handle_edit_profile/', handle_editprofile, name='handleedit'),
     path('survey/', forms, name='survey'),
-    path('logout/', views.logout, name='logout'),
+    path("save_hospital/", save_hospital, name="save_hospital"),
+    path("assign_dept/", assign_dept, name="assign_dept"),
+    path("hospital/", hospital, name="hospital"),
+    path("hospitaldetails/", hospitaldetails, name="hospitaldetails"),
+
+    # doctor
     path("doctorBase/", doctorBase),
     path("doctor_profile/", doctor_profile, name='doctor_profile'),
     path("doctor_edit_profile/", doctor_edit_profile, name='doc_edit_profile'),
+    path("handle_doctor_edit_profile/", handle_doctor_edit_profile,
+         name='handle_doc_edit_profile'),
     path("patientlist/", patientlist, name='patientlist'),
-    path("hospital/", hospital, name="hospital"),
-    path("hospitaldetails/", hospitaldetails, name="hospitaldetails"),
 ]
