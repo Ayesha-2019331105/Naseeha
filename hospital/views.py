@@ -139,3 +139,22 @@ def hospitaldetails(request):
         'doc': doc,
     }
     return render(request, "hospitaldetails.html", context)
+
+
+def hos_dept_wise_doc(request):
+    h_info = Hospital_Information.objects.get(
+        name=request.GET['hospital_name'])
+    dept = hospital_department.objects.filter(hospital=h_info)
+    dept1 = hospital_department.objects.get(
+        hospital_department_name=request.GET['dept_name'],
+        hospital=h_info)
+    print(dept1)
+    doc = doctor_info.objects.filter(
+        work_place=h_info, department_name=dept1)
+    context = {
+        'h_info': h_info,
+        'dept': dept,
+        'dept1': dept1,
+        'doc': doc,
+    }
+    return render(request, "hospital_department_wise_doctor/dept_wise_doctor.html", context)

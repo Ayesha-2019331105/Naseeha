@@ -31,7 +31,7 @@
 </head>
 
 <body style="overflow-y: scroll;">
-
+    {% include "all_profile_header.html" %}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -45,10 +45,11 @@
                     <span class="font-weight-bold"><b>{{h_info.name}}</b></span>
                 </div>
                 {% endwith %}
-                <div class="text-center">
+                <div class="text-center mb-3">
                     <div class="list-group dashboard-menu">
                         {% for i in dept %}
-                        <a href="" class="list-group-item list-group-item-action">
+                        <a href="/department_doctor?dept_name={{ i.hospital_department_name }}&hospital_name={{ h_info.name }}"
+                            class="list-group-item list-group-item-action">
                             {{i.hospital_department_name}}
                         </a>
                         {% endfor %}
@@ -71,52 +72,10 @@
                     </p>
 
                 </div>
-                <div class="row">
-                    <div class="border-right py-5">
-                        <h4 class="text-center"><b>Our doctors</b></h4>
-                    </div>
-                    {% for i in doc %}
-                    <div class="col-md-12">
-                        <div class="row mb-4">
-                            <div class="col-md-11">
-                                <div class="card">
-                                    <div class="col-md-12">
-                                        <div class="row mb-4">
-                                            <div class="col-md-4">
-                                                <div class="card">
-                                                    <img src="/static/image/therapist2.png" class="card-img-top"
-                                                        alt="..." height="200" width="300">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <p style="margin-bottom: 1em; padding: 10px;"
-                                                    class="indented-paragraph">
-                                                    <Label>Name:&nbsp;</Label><span>{{i.name}}</span><br>
-                                                    <Label>Email:&nbsp;</Label><span>{{i.email}}</span><br>
-                                                    <label>Address:&nbsp; </label><span>{{i.address}}</span><br>
-                                                    <label>Degree:&nbsp; </label><span>{{i.degree}}</span><br>
-                                                    <Label>Designation:&nbsp; </Label><span>{{i.designation}}</span><br>
-                                                    <Label>Visiting hour:&nbsp;
-                                                    </Label><span>{{i.visiting_hour}}</span><br>
-                                                    <label>Hotline:&nbsp; </label><span>{{i.phone_number}}</span><br>
-                                                    <!-- <Label>Rating:&nbsp; </Label><span>i.rating</span><br> -->
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="card">
-                                    <button style="height: 75px; width: 75px;"><img
-                                            src="/static/image/doc_appointment.jpg" class="card-img-top" alt="..."
-                                            height="75px" width="75px" /></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
+
+                {% block start %}
+
+                {% endblock %}
             </div>
         </div>
     </div>
@@ -126,22 +85,22 @@
     <div id="carouselExample" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/static/image/carousel4.jpg" class="d-block w-100" alt="Carousel Image 1"
+                <img src="/static/image/carousel1.jpeg" class="d-block w-100" alt="Carousel Image 1"
                     style="height: 350px; width:100%">
                 <div class="carousel-caption d-none d-md-block" style="color: white;">
                     <h5>“We are here for you”</h5>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/static/image/carousel2.jpg" class="d-block w-100" alt="Carousel Image 2"
+                <img src="/static/image/carousel2.jpeg" class="d-block w-100" alt="Carousel Image 2"
                     style="height: 350px; width:100%">
             </div>
             <div class="carousel-item">
-                <img src="/static/image/carousel1.jpg" class="d-block w-100" alt="Carousel Image 3"
+                <img src="/static/image/carousel3.jpeg" class="d-block w-100" alt="Carousel Image 3"
                     style="height: 350px; width:100%">
             </div>
             <div class="carousel-item">
-                <img src="/static/image/carousel3.jpg" class="d-block w-100" alt="Carousel Image 4"
+                <img src="/static/image/carousel4.jpeg" class="d-block w-100" alt="Carousel Image 4"
                     style="height: 350px; width:100%">
                 <div class="carousel-caption d-none d-md-block" style="color: white">
                     <h5>“We will support you”</h5>

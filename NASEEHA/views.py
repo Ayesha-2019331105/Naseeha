@@ -104,6 +104,7 @@ def authenticate_userp(request):
                             'work_place': cur_user.work_place,
                             'dob': cur_user.dob,
                         }
+                        request.session['cur_doc'] = request.session['cur_user']
                         cur_user.login_status = 'online'
                         cur_user.save()
                         return redirect('doctor_profile')

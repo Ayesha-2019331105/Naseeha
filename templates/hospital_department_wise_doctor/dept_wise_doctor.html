@@ -1,0 +1,50 @@
+{% extends "hospitaldetails.html" %}
+{% block start %}
+
+<div class="row">
+    <div class="border-right py-5">
+        <h4 class="text-center"><b>Our doctors</b></h4>
+    </div>
+    {% for i in doc %}
+    <div class="col-md-12">
+        <div class="row mb-4">
+            <div class="col-md-11">
+                <div class="card">
+                    <div class="col-md-12">
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="/static/image/therapist2.png" class="card-img-top" alt="..." height="200"
+                                        width="300">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <p style="margin-bottom: 1em; padding: 10px;" class="indented-paragraph">
+                                    <Label>Name:&nbsp;</Label><span>{{i.name}}</span><br>
+                                    <Label>Email:&nbsp;</Label><span>{{i.email}}</span><br>
+                                    <label>Address:&nbsp; </label><span>{{i.address}}</span><br>
+                                    <label>Degree:&nbsp; </label><span>{{i.degree}}</span><br>
+                                    <Label>Designation:&nbsp; </Label><span>{{i.designation}}</span><br>
+                                    <Label>Visiting hour:&nbsp;
+                                    </Label><span>{{i.visiting_hour}}</span><br>
+                                    <label>Hotline:&nbsp; </label><span>{{i.phone_number}}</span><br>
+                                    <!-- <Label>Rating:&nbsp; </Label><span>i.rating</span><br> -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="card">
+                    <a href="/req_appointment?pid={{ request.session.cur_user.email }}&did={{ i.email }}">
+                        <button style="height: 75px; width: 75px;"><img src="/static/image/appointment.jpg"
+                                class="card-img-top" alt="..." height="75px" width="75px" /></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

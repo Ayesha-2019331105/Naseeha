@@ -19,6 +19,7 @@ from django.urls import path
 from NASEEHA.views import *
 from doctors.views import *
 from hospital.views import *
+from interactions.views import *
 urlpatterns = [
     # path('admin/', admin.site.urls, name='admin'),
     # naseeha
@@ -41,6 +42,7 @@ urlpatterns = [
     path("assign_dept/", assign_dept, name="assign_dept"),
     path("hospital/", hospital, name="hospital"),
     path("hospitaldetails/", hospitaldetails, name="hospitaldetails"),
+    path("department_doctor/", hos_dept_wise_doc, name="hos_dept_wise_doc"),
 
     # doctor
     path("doctorBase/", doctorBase),
@@ -49,4 +51,10 @@ urlpatterns = [
     path("handle_doctor_edit_profile/", handle_doctor_edit_profile,
          name='handle_doc_edit_profile'),
     path("patientlist/", patientlist, name='patientlist'),
+
+    # interactions
+    path("req_appointment/", request_appointment, name='req_appointment'),
+    path("appointment_details/", appointment_details, name='appointment_details'),
+
+
 ]
