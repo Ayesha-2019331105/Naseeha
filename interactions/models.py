@@ -13,9 +13,9 @@ class appointment(models.Model):
         max_length=70, null=True, blank=True, default='Pending')
     serial_number = models.IntegerField(default=0, null=True, blank=True)
     doctor = models.ForeignKey(
-        doctor_info, on_delete=models.CASCADE, null=True, blank=True)
+        doctor_info, on_delete=models.CASCADE, null=True, blank=True, related_name='doctor')
     patient = models.ForeignKey(
-        Patient, on_delete=models.CASCADE, null=True, blank=True)
+        Patient, on_delete=models.CASCADE, null=True, blank=True, related_name='patient')
 
 
 class review(models.Model):

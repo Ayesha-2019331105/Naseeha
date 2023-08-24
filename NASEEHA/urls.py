@@ -38,6 +38,7 @@ urlpatterns = [
     path('edit_profile/', editprofile, name='editprofile'),
     path('handle_edit_profile/', handle_editprofile, name='handleedit'),
     path('survey/', forms, name='survey'),
+    path("appointment_list/", appointment_list, name="appointment_list"),
     path("save_hospital/", save_hospital, name="save_hospital"),
     path("assign_dept/", assign_dept, name="assign_dept"),
     path("hospital/", hospital, name="hospital"),
@@ -55,6 +56,6 @@ urlpatterns = [
     # interactions
     path("req_appointment/", request_appointment, name='req_appointment'),
     path("appointment_details/", appointment_details, name='appointment_details'),
-
+    path("update_appointment/", update_appointment, name='update_appointment'),
 
 ]

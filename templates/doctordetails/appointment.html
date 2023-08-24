@@ -1,0 +1,62 @@
+{% extends "doctorBase.html" %}
+{% block start %}
+
+
+<div class="col-md-9 border-right">
+    <div class="py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-right"><b>Appointment List</b></h4>
+        </div>
+        <form action="/update_appointment/" method="post">
+            {% csrf_token %}
+            <div class="row mt-3 mb-3">
+                <div class="col-md-12">
+                    <form action="" method="post">
+                        <table class="container">
+                            <tr>
+                                <th>No</th>
+                                <th>patient ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Serial Number</th>
+                                <th>Appointment Date</th>
+                                <th>Appointment Time<p style="font-weight: lighter;">{{doc.visiting_hour}}</p>
+                                </th>
+                                <th>Appointment Status</th>
+                            </tr>
+                            {% for i in apnt %}
+                            <tr>
+                                <td><input name="aid" style="width: 20px;" required readonly
+                                        value="{{forloop.counter}}" />
+                                </td>
+                                <td><input name="pid" style="width: 30px;" required readonly
+                                        value="{{i.patient.Patient_id}}" /></td>
+                                <td><input name="p_name" style="width: 200px;" required readonly
+                                        value="{{i.patient.name}}" /> </td>
+                                <td> <input name="p_age" style="width: 30px;" required readonly
+                                        value="{{i.patient.age }}" /></td>
+                                <td> <input name="p_email" style="width: 250px;" required readonly
+                                        value="{{i.patient.email}}" /> </td>
+                                <td> <input name="sl" style="width: 30px;" required readonly
+                                        value="{{i.serial_number}}" />
+                                </td>
+                                <td contenteditable="true"><input type="date" name="date" required
+                                        value="{{i.appointment_date}}" /></td>
+                                <td contenteditable="true"><input type="time" name="time" required
+                                        value="{{i.appointment_time}}" /></td>
+                                <td contenteditable="true"><input name="status" required
+                                        value="{{i.appointment_status}}" />
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

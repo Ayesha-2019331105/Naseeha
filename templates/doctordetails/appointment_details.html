@@ -5,11 +5,13 @@
 </head>
 
 <body>
-    <p>{{apnt.id}}</p>
+    {% for i in apnt %}
+    <p>{{i.appointment_id}}</p>
     <p>{{apnt.doctor}}</p>
     <p>{{apnt.patient}}</p>
     <p>{{apnt.date}}</p>
     <p>{{apnt.time}}</p>
+    {% endfor %}
 </body>
 
 </html>

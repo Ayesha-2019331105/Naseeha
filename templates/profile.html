@@ -8,8 +8,11 @@
     <link rel="icon" href="/static/image/therapy.png" type="image/png">
     <title>Profile</title>
     <style>
-        .card {
-            border-radius: 50px;
+        .card-context {
+            border-radius: 20px;
+            height: 400px;
+            width: 300px;
+            margin-right: 20px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
             ;
         }
@@ -30,43 +33,51 @@
         crossorigin="anonymous"></script>
 
     <div class="container py-3">
-        <div class="row row-cols-1 row-cols-md-3 g-4 py-3">
-            <div class="col">
-                <div class="card">
-                    <img src="/static/image/survey.jpg" class="card-img-top" alt="..." height="300" width="300">
-                    <div class="card-body">
+        <div class="row">
+
+            <div class="card-context">
+                <img src="/static/image/survey.jpg" class="card-img-top" alt="..." height="300" width="300">
+                <div class="card-body">
+                    <a href="/survey">
                         <h5 class="card-title">SURVEY</h5>
-                        <p class="card-text">Please fillup this survey.</p>
-                    </div>
-                    <div class="mb-5 d-flex justify-content-around">
-                        <a href="/survey" class="card-link">Click here</a>
-                    </div>
+                    </a>
+                    <p class="card-text">Please fillup this survey.</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/static/image/report.jpg" class="card-img-top" alt="..." height="300" width="300">
-                    <div class="card-body">
+
+
+            <div class="card-context">
+                <img src="/static/image/appointmentlist.png" class="card-img-top" alt="..." height="300" width="300">
+                <div class="card-body">
+                    <a href="/appointment_list?pid={{ request.session.cur_user.email }}">
+                        <h5 class="card-title">All Appointments</h5>
+                    </a>
+                    <p class="card-text">You can find your all appointments here.</p>
+                </div>
+            </div>
+
+
+            <div class="card-context">
+                <img src="/static/image/report.jpg" class="card-img-top" alt="..." height="300" width="300">
+                <div class="card-body">
+                    <a href="#">
                         <h5 class="card-title">REPORT</h5>
-                        <p class="card-text">You can find your reports here as well as can download it.</p>
-                    </div>
-                    <div class="mb-4 d-flex justify-content-around">
-                        <a href="#" class="card-link">Click here</a>
-                    </div>
+                    </a>
+                    <p class="card-text">You can find your reports here as well as can download it.</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="card">
-                    <img src="/static/image/feedback.jpg" class="card-img-top" alt="..." height="300" width="300">
-                    <div class="card-body">
+
+
+            <div class="card-context">
+                <img src="/static/image/feedback.jpg" class="card-img-top" alt="..." height="300" width="300">
+                <div class="card-body">
+                    <a href="#">
                         <h5 class="card-title">FEEDBACK</h5>
-                        <p class="card-text">Give feedback & ratings.</p>
-                    </div>
-                    <div class="mb-5 d-flex justify-content-around">
-                        <a href="#" class="card-link">Click here</a>
-                    </div>
+                    </a>
+                    <p class="card-text">Give feedback & ratings.</p>
                 </div>
             </div>
+
         </div>
     </div>
 </body>

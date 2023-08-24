@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 # from django.contrib.auth.models import User
 from .models import *
 from doctors.models import *
+from interactions.models import *
 # from .forms import PatientForm,CustomUserCreationForm
 from django.views.decorators.csrf import csrf_exempt
 
@@ -118,6 +119,17 @@ def save_hospital(request):
 
 def forms(request):
     return render(request, "forms.html")
+
+
+def appointment_list(request):
+    patient_info = Patient.objects.get(email=request.GET['pid'])
+    apnt = appointment.objects.select_related(
+        'patient', 'doctor').filter(patient=patient_info)
+    context = {
+        'patient_info': patient_info,
+        'apnt': apnt,
+    }
+    return render(request, "appointment_details_p.html", context)
 
 
 def hospital(request):
