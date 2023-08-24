@@ -20,6 +20,7 @@ from NASEEHA.views import *
 from doctors.views import *
 from hospital.views import *
 from interactions.views import *
+from chat.views import *
 urlpatterns = [
     # path('admin/', admin.site.urls, name='admin'),
     # naseeha
@@ -57,5 +58,11 @@ urlpatterns = [
     path("req_appointment/", request_appointment, name='req_appointment'),
     path("appointment_details/", appointment_details, name='appointment_details'),
     path("update_appointment/", update_appointment, name='update_appointment'),
+
+
+    # chat
+    path("chat/", chatHome, name='chatHome'),
+    path("get_chats/", get_chats, name='getMessages'),
+    path("send_chat/", send_chat, name='sendMessages'),
 
 ]

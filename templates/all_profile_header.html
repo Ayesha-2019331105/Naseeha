@@ -18,6 +18,9 @@
                         <a class="nav-link active" aria-current="page" href="/hospital">Services</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/chat">Chat</a>
+                    </li>
+                    <li class="nav-item">
                         {% if request.session.cur_user.role %}
                         <a class="nav-link active" aria-current="page" href="/edit_profile">Profile</a>
                         {% else %}

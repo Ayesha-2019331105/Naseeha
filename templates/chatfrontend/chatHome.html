@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NaseehaChat</title>
+</head>
+
+<body>
+    <h1>Real-Time Chat</h1>
+    <p>User_to:</p>
+    <input type="text" id="user_to" value="{{user_to.username}}" readonly>
+    <div id="chat-window">
+        {% for chat in request.session.chats %}
+        <p>
+            {% if chat.user_from == request.session.cur_user %}
+            You: {{ chat.content }}
+            {% else %}
+            {{ chat.user_from }}: {{ chat.content }}
+            {% endif %}
+        </p>
+        {% endfor %}
+    </div>
+    <input type="text" id="message-input" placeholder="Enter your message">
+    <!-- {% csrf_token %} -->
+    <button id="send-button">Send</button>
+
+    <script>
+        const userTo = document.getElementById( 'user_to' );
+        const sender = '{{ request.session.cur_user }}';  // This is passed from the view
+        const chatWindow = document.getElementById( 'chat-window' );
+        const messageInput = document.getElementById( 'message-input' );
+        const sendButton = document.getElementById( 'send-button' );
+
+        function fetchChats ()
+        {
+            fetch( '/get_chats/' )
+                .then( response => response.json() )
+                .then( data =>
+                {
+                    chatWindow.innerHTML = '';
+                    data.forEach( chat =>
+                    {
+                        const chatMessage = document.createElement( 'p' );
+                        chatMessage.textContent = `${ chat.user_from === sender ? 'You' : chat.user_from }: ${ chat.content }`;
+                        chatWindow.appendChild( chatMessage );
+                    } );
+                } );
+        }
+
+        function sendMessage ()
+        {
+            console.log( userTo )
+            const user_to = userTo.value;
+            console.log( user_to )
+            const message = messageInput.value;
+            fetch( '/send_chat/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `message=${ message }&user_to=${ user_to }`
+            } ).then( () =>
+            {
+                messageInput.value = '';
+                fetchChats();
+            } );
+        }
+
+        sendButton.addEventListener( 'click', sendMessage );
+
+        // Fetch chats every 2 seconds (polling)
+        setInterval( fetchChats, 2000 );
+    </script>
+</body>
+
+</html>
