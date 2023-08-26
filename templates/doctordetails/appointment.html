@@ -14,7 +14,7 @@
                     <form action="" method="post">
                         <table class="container">
                             <tr>
-                                <th>No</th>
+                                <th>AID</th>
                                 <th>patient ID</th>
                                 <th>Name</th>
                                 <th>Age</th>
@@ -28,7 +28,7 @@
                             {% for i in apnt %}
                             <tr>
                                 <td><input name="aid" style="width: 20px;" required readonly
-                                        value="{{forloop.counter}}" />
+                                        value="{{i.appointment_id}}" />
                                 </td>
                                 <td><input name="pid" style="width: 30px;" required readonly
                                         value="{{i.patient.Patient_id}}" /></td>
@@ -38,14 +38,23 @@
                                         value="{{i.patient.age }}" /></td>
                                 <td> <input name="p_email" style="width: 250px;" required readonly
                                         value="{{i.patient.email}}" /> </td>
-                                <td> <input name="sl" style="width: 30px;" required readonly
+                                <td> <input type="text" name="sl" style="width: 30px;" required readonly
                                         value="{{i.serial_number}}" />
                                 </td>
-                                <td contenteditable="true"><input type="date" name="date" required
-                                        value="{{i.appointment_date}}" /></td>
-                                <td contenteditable="true"><input type="time" name="time" required
-                                        value="{{i.appointment_time}}" /></td>
-                                <td contenteditable="true"><input name="status" required
+                                {% if i.appointment_date %}
+                                <td><input type="text" style="width: 5rem;" name="date" required readonly
+                                        value="{{i.appointment_date|date:'m-d-Y'}}" /></td>
+                                {% else %}
+                                <td><input type="date" style="width: 5rem;" name="date" required /></td>
+                                {% endif %}
+                                {% if i.appointment_time %}
+                                <td><input type="text" style="width: 5rem;" name="time" required readonly
+                                        value="{{i.appointment_time}}" />
+                                </td>
+                                {% else %}
+                                <td><input type="time" style="width: 5rem;" name="time" required /></td>
+                                {% endif %}
+                                <td><input name="status" style="width: 5rem;" required
                                         value="{{i.appointment_status}}" />
                                 </td>
                             </tr>

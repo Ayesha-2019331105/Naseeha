@@ -10,11 +10,12 @@ from django.utils import timezone
 def request_appointment(request):
     doc = doctor_info.objects.get(email=request.GET['did'])
     patient = Patient.objects.get(email=request.GET['pid'])
-    apnt = appointment.objects.create(
+    apnt1 = appointment.objects.create(
         doctor=doc,
         patient=patient,
-        serial_number=int(timezone.now().timestamp()),
     )
+    apnt1.save()
+    apnt = appointment.objects.filter(patient=patient)
     context = {
         'pid': patient,
         'doc': doc,
@@ -38,10 +39,18 @@ def appointment_details(request):
 
 def update_appointment(request):
     if (request.method == "POST"):
+        print(request.POST.get('aid'))
+        print(request.POST.get('sl'))
         apnt = appointment.objects.get(appointment_id=request.POST.get('aid'))
-        apnt.appointment_date = request.POST.get('date')
-        apnt.appointment_time = request.POST.get('time')
-        apnt.appointment_status = request.POST.get('status')
+        if (apnt.appointment_date is None):
+            apnt.appointment_date = request.POST.get('date')
+        if (apnt.serial_number is None):
+            apnt.serial_number = request.POST.get('sl')
+        if (apnt.appointment_time is None):
+            apnt.appointment_time = request.POST.get('time')
+        if (apnt.appointment_status == "Pending"):
+            apnt.appointment_status = request.POST.get('status')
         apnt.save()
+        print(apnt)
         return redirect('doctor_profile')
-    return redirect('doc_profile')
+    return redirect('doctor_profile')

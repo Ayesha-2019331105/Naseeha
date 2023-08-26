@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>NaseehaChat</title>
+    <title>RoomAuthentication</title>
 </head>
 
 <body>
@@ -12,7 +12,7 @@
     <div id="chat-window">
         {% for chat in request.session.chats %}
         <p>
-            {% if chat.user_from == request.session.cur_user %}
+            {% if chat.user_from == request.session.chat_username %}
             You: {{ chat.content }}
             {% else %}
             {{ chat.user_from }}: {{ chat.content }}

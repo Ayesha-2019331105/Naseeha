@@ -11,7 +11,7 @@ class appointment(models.Model):
     appointment_time = models.TimeField(null=True, blank=True)
     appointment_status = models.CharField(
         max_length=70, null=True, blank=True, default='Pending')
-    serial_number = models.IntegerField(default=0, null=True, blank=True)
+    serial_number = models.IntegerField(null=True, blank=True)
     doctor = models.ForeignKey(
         doctor_info, on_delete=models.CASCADE, null=True, blank=True, related_name='doctor')
     patient = models.ForeignKey(

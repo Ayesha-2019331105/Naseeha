@@ -61,8 +61,9 @@ urlpatterns = [
 
 
     # chat
-    path("chat/", chatHome, name='chatHome'),
+    path("chat/", chatHome, name='chat'),
     path("get_chats/", get_chats, name='getMessages'),
     path("send_chat/", send_chat, name='sendMessages'),
+    path("chatHome/", chatIndividual, name='eachUserChat'),
 
 ]

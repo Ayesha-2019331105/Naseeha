@@ -1,0 +1,63 @@
+{% extends "chatfrontend/chat.html" %}
+{% block start %}
+
+<div class="col-md-9 border-right py-3">
+    <div class="card">
+        <div id="chat-window">
+            {% for chat in request.session.chats %}
+            <p>
+                {% if chat.user_from.username == request.session.cur_user.username %}
+                you: {{ chat.content }}
+                {% else %}
+                {{ chat.user_from }}: {{ chat.content }}
+                {% endif %}
+            </p>
+            {% endfor %}
+        </div>
+        <input type="text" id='chat-input'>
+        <button id="send-button">Send</button>
+    </div>
+</div>
+<script>
+    const userTo = '{{request.session.to.username}}';
+    const sender = '{{ request.session.cur_user }}';  // This is passed from the view
+    const chatWindow = document.getElementById( 'chat-window' );
+    const messageInput = document.getElementById( 'chat-input' );
+    const sendButton = document.getElementById( 'send-button' );
+
+    function fetchChats ()
+    {
+        fetch( '/get_chats/' )
+            .then( response => response.json() )
+            .then( data =>
+            {
+                chatWindow.innerHTML = '';
+                data.forEach( chat =>
+                {
+                    const chatMessage = document.createElement( 'p' );
+                    chatMessage.textContent = `${ chat.user_from === sender ? 'You' : chat.user_from }: ${ chat.content }`;
+                    chatWindow.appendChild( chatMessage );
+                } );
+            } );
+    }
+
+    function sendMessage ()
+    {
+        const message = messageInput.value;
+        fetch( '/send_chat/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `message=${ message }`
+        } ).then( () =>
+        {
+            messageInput.value = '';
+            fetchChats();
+        } );
+    }
+
+    sendButton.addEventListener( 'click', sendMessage );
+
+    // Fetch chats every 2 seconds (polling)
+    setInterval( fetchChats, 2000 );
+</script>
+{% endblock %}

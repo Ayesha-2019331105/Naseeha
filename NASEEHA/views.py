@@ -6,6 +6,7 @@ from hospital.models import Patient, UserP
 from doctors.models import doctor_info
 from django.views.decorators.csrf import csrf_exempt
 from chat.models import *
+from interactions.models import *
 
 
 def homepage(request):
@@ -169,25 +170,41 @@ def signup(request):
 
 # chat
 def chatHome(request):
-    email = request.session['cur_user'].get('email')
-    user = UserP.objects.get(email=email)
-    chats = chatMessages.objects.all()
-    user_to = doctor_info.objects.get(login_status='online')
-    print(user_to.username)
-    context = {
-        'user': user,
-        'chats': chats,
-        'user_to': user_to,
-    }
-    chat_list = []
-    for message in chats:
-        chat_list.append({
-            'user_to': message.user_to.username,
-            # Assuming 'user_from' has a 'username' field
-            'user_from': message.user_from.username,
-            'content': message.message,
-            # Convert to string
-            'timestamp': message.date_created.strftime("%b-%d-%Y %H:%M"),
-        })
-    request.session['chats'] = chat_list
-    return render(request, 'chatfrontend/chatHome.html', context)
+    # email = request.session['cur_user'].get('email')
+    # user = UserP.objects.get(email=email)
+    # chats = chatMessages.objects.all()
+    # user_to = doctor_info.objects.get(login_status='online')
+    # print(user_to.username)
+    # context = {
+    #     'user': user,
+    #     'chats': chats,
+    #     'user_to': user_to,
+    # }
+    # chat_list = []
+    # for message in chats:
+    #     chat_list.append({
+    #         'user_to': message.user_to.username,
+    #         # Assuming 'user_from' has a 'username' field
+    #         'user_from': message.user_from.username,
+    #         'content': message.message,
+    #         # Convert to string
+    #         'timestamp': message.date_created.strftime("%b-%d-%Y %H:%M"),
+    #     })
+    # request.session['chats'] = chat_list
+    patient_doctors = []
+    role = request.session['cur_user'].get('role')
+    if role:
+        email = request.session['cur_user'].get('email')
+        user = Patient.objects.get(email=email)
+        appointments = appointment.objects.filter(patient=user)
+        patient_doctors = [appointment.doctor for appointment in appointments]
+        request.session['chat_heads'] = [
+            doctor.username for doctor in patient_doctors]
+    else:
+        email = request.session['cur_user'].get('email')
+        user = doctor_info.objects.get(email=email)
+        appointments = appointment.objects.filter(doctor=user)
+        patient_doctors = [appointment.patient for appointment in appointments]
+        request.session['chat_heads'] = [
+            doctor.username for doctor in patient_doctors]
+    return render(request, 'chatfrontend/chat.html', {'toUser': patient_doctors})
