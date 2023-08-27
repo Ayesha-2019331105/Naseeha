@@ -1,0 +1,55 @@
+{% extends "service_free.html" %}
+{% block start %}
+
+<div class="card-body">
+    <div class="container-sd py-5">
+        <div class="row">
+            {% if var == "scared" or var == "tired" or var == "angry" %}
+            <div class="card-context" id="anxiety">
+                <img src="/static/images/naturalanxiety.jpg" class="card-img-top" height="300px">
+                <span class="text-center">
+                    <a href="/naturaltherapy/" class="card-link" style="color: #292e39;">
+                        <h5>Natural Anxiety Therapy</h5>
+                    </a>
+                </span><br>
+            </div>
+            {% elif var == "bored" or var == "sad" %}
+            <div class="card-context" id='roughday'>
+                <img src="/static/images/roughday.png" class="card-img-top" height="300px">
+                <span class="text-center">
+                    <a href="#" class="card-link" style="color: #292e39;">
+                        <h5>Having a rough day?</h5>
+                    </a>
+                </span><br>
+            </div>
+            {% else %}
+            <div class="card-sd" id='happycard'>
+                <p style="margin-top: 50px;">
+                    "The only joy in the world is to begin." —Cesare Pavese<br>
+
+                    "It is only possible to live happily ever after on a daily basis." —Margaret Bonanno<br>
+
+                    "The pleasure which we most rarely experience gives us greatest delight." —Epictetus<br>
+
+                    "Remember this, that very little is needed to make a happy life." — Marcus Aurelius<br>
+
+                    "I wake up every morning with a great desire to live joyfully." — Anna Howard Shaw<br>
+                    "Happiness depends upon ourselves." —Aristotle<br>
+
+                    "Happiness is when what you think, what you say, and what you do are in harmony." —Mahatma
+                    Gandhi<br>
+
+                    "The moments of happiness we enjoy take us by surprise. It is not that we seize them, but that they
+                    seize us." —Ashley Montagu<br>
+
+                    "Even if happiness forgets you a little bit, never completely forget about it." —Jaques Prevert<br>
+
+                    "One of the secrets of a happy life is continuous small treats." —Iris Murdoch<br>
+                </p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

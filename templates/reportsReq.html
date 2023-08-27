@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        tr:hover {
+            background-color: lightgray;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Patients Click to Create Report</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Blood Group</th>
+                <th>Dob</th>
+                <th>Age</th>
+                <th>Location</th>
+                <th>About</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_id, user_data in context.items %}
+            <tr>
+                <td><a href="/reportinfo?name={{user_data.email}}">{{user_data.name}}</a></td>
+                <td>{{user_data.email}}</td>
+                <td>{{user_data.phone_number}}</td>
+                <td>{{user_data.blood_group}}</td>
+                <td>{{user_data.dob}}</td>
+                <td>{{user_data.age}}</td>
+                <td>{{user_data.address}}</td>
+                <td>{{user_data.history}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

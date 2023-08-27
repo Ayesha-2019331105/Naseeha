@@ -1,0 +1,669 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <title>Naseeha</title>
+    <style>
+        #check {
+            display: none;
+        }
+
+        .content {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        label {
+            margin-top: 10px;
+            display: inline-block;
+            color: black;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #check:checked~.content {
+            display: block;
+        }
+
+        #check:checked~label {
+            visibility: hidden;
+        }
+
+        #check:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+
+        #check1 {
+            display: none;
+        }
+
+        .content1 {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        #check1:checked~.content1 {
+            display: block;
+        }
+
+        #check1:checked~label {
+            visibility: hidden;
+        }
+
+        #check1:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+
+        #check2 {
+            display: none;
+        }
+
+        .content2 {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        #check2:checked~.content2 {
+            display: block;
+        }
+
+        #check2:checked~label {
+            visibility: hidden;
+        }
+
+        #check2:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+
+        #check3 {
+            display: none;
+        }
+
+        .content3 {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        #check3:checked~.content3 {
+            display: block;
+        }
+
+        #check3:checked~label {
+            visibility: hidden;
+        }
+
+        #check3:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+
+        #check4 {
+            display: none;
+        }
+
+        .content4 {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        #check4:checked~.content4 {
+            display: block;
+        }
+
+        #check4:checked~label {
+            visibility: hidden;
+        }
+
+        #check4:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+
+        #check5 {
+            display: none;
+        }
+
+        .content5 {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        #check5:checked~.content5 {
+            display: block;
+        }
+
+        #check5:checked~label {
+            visibility: hidden;
+        }
+
+        #check5:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+
+        #check6 {
+            display: none;
+        }
+
+        .content6 {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        #check6:checked~.content6 {
+            display: block;
+        }
+
+        #check6:checked~label {
+            visibility: hidden;
+        }
+
+        #check6:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body style="overflow-y: scroll; background-color: #B9D9EB;">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="row py-5">
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="/static/images/anxiety.jpeg" class="card-img-top" height="250"
+                                            width="200">
+                                        <h4>Anxiety</h4>
+                                        (3 min)
+                                    </div>
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check" style="background-color: black;">
+                                    <p>
+                                        Dealing with anxiety requires effective strategies to manage your feelings and
+                                        promote a sense of calm. Here's a "rescue session" plan for handling
+                                        anxiety:<br>
+
+                                        1.<u>Recognize Your Anxiety:</u> Acknowledge and accept that you're feeling
+                                        anxious. Recognizing your emotions is the first step towards managing them.<br>
+
+                                        2.<u>Deep Breathing:</u> Practice deep breathing exercises. Inhale deeply for a
+                                        count of four, hold for a count of four, and exhale for a count of four. This
+                                        can help regulate your breathing and calm your nervous system.<br>
+                                        3.<u>Ground Yourself:</u> Use grounding techniques to connect with the
+                                        present
+                                        moment. Focus on your surroundings by naming five things you can see, four
+                                        things you can touch, three things you can hear, two things you can smell,
+                                        and
+                                        one thing you can taste.<br>
+                                    </p>
+                                    <div class="content">
+                                        <p>
+                                            4.<u>Mindfulness Meditation:</u> Engage in mindfulness meditation to help
+                                            calm
+                                            racing thoughts. Focus on your breath and observe your thoughts without
+                                            judgment.<br>
+
+                                            5.<u>Progressive Muscle Relaxation:</u> Tense and then release different
+                                            muscle
+                                            groups in your body. This can help alleviate physical tension associated
+                                            with
+                                            anxiety.<br>
+
+                                            6.<u>Positive Self-Talk:</u> Challenge negative thoughts with positive
+                                            affirmations. Replace anxious thoughts with more balanced and rational
+                                            ones.<br>
+
+                                            7.<u>Engage in Relaxing Activities:</u> Participate in activities that relax
+                                            you, such as taking a warm bath, listening to calming music, or engaging in
+                                            a
+                                            creative hobby.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="/static/images/emo.jpg" class="card-img-top" height="250" width="300">
+                                        <h4>Emotional Burnout</h4>
+                                        (2 min)
+                                    </div>
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check1" style="background-color: black;">
+                                    <p>
+                                        When experiencing emotional burnout, it's important to prioritize self-care and
+                                        take steps to address and alleviate the symptoms. Here's a "rescue session" plan
+                                        to consider:<br>
+
+                                        1.Acknowledge Your Feelings: Recognize and accept that you are experiencing
+                                        emotional burnout. It's normal to feel this way, and acknowledging your emotions
+                                        is the first step toward healing.<br>
+
+                                        2.Take a Break: If possible, step away from the situation or task that's causing
+                                        the burnout. Whether it's for a few hours, a day, or longer, give yourself
+                                        permission to take a break and recharge.<br>
+
+                                        3.Practice Mindfulness and Relaxation Techniques: Engage in mindfulness
+                                        meditation, deep breathing exercises, progressive muscle relaxation, or yoga.
+                                        These techniques can help reduce stress and promote a sense of calm.<br>
+
+                                        4.Disconnect: Take a break from technology and social media. Constant digital
+                                        engagement can contribute to burnout. Disconnecting for a while can give your
+                                        mind a much-needed break.<br>
+
+                                        5.Engage in Activities You Enjoy: Do something you genuinely enjoy that is
+                                        unrelated to the source of your burnout. Engaging in hobbies or activities that
+                                        bring you joy can help shift your focus and improve your mood.<br>
+
+                                    </p>
+                                    <div class="content1">
+                                        <p>
+                                            6.Reach Out for Support: Talk to friends, family members, or a therapist
+                                            about
+                                            what you're feeling. Sometimes, just expressing your emotions and concerns
+                                            to
+                                            someone you trust can provide relief.<br>
+
+                                            7.Prioritize Sleep: Ensure you're getting enough quality sleep. Sleep plays
+                                            a
+                                            crucial role in physical and emotional well-being, and lack of sleep can
+                                            exacerbate burnout.<br>
+
+                                            8.Maintain a Healthy Diet: Eat nutritious foods that provide your body with
+                                            the
+                                            necessary fuel and nutrients. Avoid excessive caffeine and sugar, as they
+                                            can
+                                            contribute to mood swings.<br>
+
+                                            9.Physical Activity: Engage in regular physical activity, whether it's a
+                                            walk,
+                                            jog, yoga, or any form of exercise you enjoy. Exercise can release
+                                            endorphins,
+                                            which are natural mood lifters.<br>
+                                            10.Professional Help: If your burnout is severe or persistent, consider
+                                            seeking
+                                            professional help from a therapist or counselor. They can provide guidance
+                                            and support tailored to your specific situation.<br>
+
+                                            Remember that recovering from emotional burnout takes time, and it's
+                                            important to be patient with yourself. Regular self-care practices and a
+                                            proactive approach to managing stress can go a long way in preventing
+                                            burnout from reoccurring in the future.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check1">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="/static/images/nervous.jpg" class="card-img-top" height="250"
+                                            width="300">
+                                        <h4>Nervous</h4>
+                                        (2 min)
+                                    </div>
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check2" style="background-color: black;">
+                                    <p>
+                                        Feeling nervous is a common response to various situations, but there are
+                                        several strategies you can use to manage your nervousness and regain a sense of
+                                        calm. Here's a "rescue session" plan for dealing with nervousness:<br>
+
+                                        1.Acknowledge Your Nervousness: Recognize and accept that you're feeling
+                                        nervous.
+                                        It's okay to experience this emotion, and acknowledging it is the first step
+                                        toward managing it.<br>
+
+                                        2Deep Breathing: Practice deep breathing exercises. Inhale deeply for a count of
+                                        four, hold for a count of four, and exhale for a count of four. Deep breathing
+                                        can help regulate your heart rate and reduce anxiety.<br>
+
+                                        3.Positive Self-Talk: Challenge negative or self-critical thoughts with positive
+                                        affirmations. Remind yourself of your strengths and previous successes.<br>
+
+                                        4.Visualization: Imagine yourself successfully navigating the situation that's
+                                        making you nervous. Visualizing a positive outcome can help reduce anxiety and
+                                        boost your confidence.<br>
+
+                                        5.Break Tasks into Smaller Steps: If you're nervous about a specific task, break
+                                        it down into smaller, manageable steps. Focusing on one step at a time can make
+                                        the overall situation feel less overwhelming.<br>
+
+
+                                    </p>
+                                    <div class="content2">
+                                        <p>
+                                            6.Prepare and Practice: Preparation can help alleviate nervousness. Whether
+                                            it's a
+                                            presentation, interview, or social event, practicing and being well-prepared
+                                            can
+                                            boost your confidence.<br>
+
+                                            7.Stay Present: Focus on the present moment rather than worrying about the
+                                            future.
+                                            Mindfulness techniques can help ground you and reduce anxiety.<br>
+
+                                            8.Physical Movement: Engage in light physical activity to release built-up
+                                            tension. Activities like stretching, walking, or gentle yoga can help calm
+                                            your
+                                            nerves.<br>
+
+                                            9.Progressive Muscle Relaxation: Tense and then release different muscle
+                                            groups in
+                                            your body. This technique can help you become more aware of tension and
+                                            actively
+                                            relax your muscles.<br>
+
+                                            10.Distraction: Engage in an activity you enjoy to distract yourself from
+                                            nervous
+                                            thoughts. This can redirect your focus and help you relax.<br>
+
+                                            11.Seek Support: Talk to a friend, family member, or mentor about your
+                                            nervousness.
+                                            Sharing your feelings with someone you trust can provide reassurance and
+                                            perspective.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check2">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="/static/images/hurt.jpg" class="card-img-top" height="250"
+                                            width="300">
+                                        <h4>Hurt</h4>
+                                        (2 min)
+                                    </div>
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check3" style="background-color: black;">
+                                    <p>
+                                        Experiencing emotional pain or hurt can be challenging, but there are ways to
+                                        cope and heal. Here's a "rescue session" plan for dealing with emotional
+                                        hurt:<br>
+
+                                        1.Allow Yourself to Feel: Give yourself permission to feel the emotions
+                                        associated
+                                        with the hurt. It's important to acknowledge and process your feelings rather
+                                        than suppressing them.<br>
+
+                                        2.Self-Compassion: Treat yourself with the same kindness and understanding you
+                                        would offer a friend. Practice self-compassion by speaking to yourself in a
+                                        supportive and gentle manner.
+                                        <br>
+                                        3.Reach Out for Support: Lean on friends, family, or a therapist for emotional
+                                        support. Sharing your feelings with someone you trust can provide comfort and
+                                        perspective.<br>
+
+                                        4.Journaling: Write down your thoughts and feelings in a journal. This can help
+                                        you process your emotions and gain insights into the source of your hurt.<br>
+
+                                    </p>
+                                    <div class="content3">
+                                        <p>
+                                            5.Engage in Self-Care: Engage in activities that nurture your well-being,
+                                            such as
+                                            taking a bath, reading a book, going for a walk, or doing something you
+                                            enjoy.<br>
+
+                                            6.Practice Mindfulness: Engage in mindfulness techniques to stay present and
+                                            observe your emotions without judgment. Mindfulness can help you manage
+                                            intense
+                                            feelings more effectively.<br>
+
+                                            7.Create Boundaries: If the hurt is caused by a specific person or
+                                            situation,
+                                            consider setting healthy boundaries to protect yourself from further
+                                            harm.<br>
+
+                                            8.Positive Distractions: Engage in activities that can temporarily shift
+                                            your
+                                            focus away from the hurt. This could be watching a movie, spending time with
+                                            loved ones, or pursuing a hobby.<br>
+
+                                            9.Practice Forgiveness: If appropriate and when you're ready, consider
+                                            working on
+                                            forgiveness. Forgiving doesn't necessarily mean condoning the hurtful
+                                            behavior
+                                            but can free you from holding onto resentment.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check3">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="/static/images/anger.jpg" class="card-img-top" height=300" width="300">
+                                        <h4>Anger</h4>
+                                        (3 min)
+                                    </div>
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check4" style="background-color: black;">
+                                    <p>
+                                        Dealing with anger in a constructive and healthy way is important for your
+                                        well-being and your relationships. Here's a "rescue session" plan for managing
+                                        anger:<br>
+
+                                        1.Recognize Your Anger: Acknowledge that you're feeling angry. Recognizing your
+                                        emotions is the first step toward managing them.<br>
+
+                                        2.Take a Pause: Before reacting, take a deep breath and give yourself a moment
+                                        to
+                                        cool down. Count to ten or take a short break to regain your composure.<br>
+
+                                        3.Physically Release Tension: Engage in physical activity to release built-up
+                                        tension. You could go for a brisk walk, do some deep breathing exercises, or
+                                        engage in a simple workout.<br>
+
+                                        4.Use "I" Statements: If appropriate, express your feelings using "I"
+                                        statements.
+                                        Communicate how you feel and why you're feeling that way without blaming or
+                                        attacking others.<br>
+
+
+                                    </p>
+                                    <div class="content4">
+                                        <p>
+                                            5.Avoid Aggressive Language: Choose your words carefully. Avoid using
+                                            aggressive
+                                            or offensive language that can escalate the situation.<br>
+
+                                            6.Find a Safe Outlet: Channel your anger into a creative outlet or physical
+                                            activity. This can help you release pent-up energy and emotions.<br>
+
+                                            7.Practice Mindfulness: Engage in mindfulness techniques to stay present and
+                                            observe your anger without acting on it. This can help you respond more
+                                            thoughtfully.<br>
+
+                                            8.Seek Support: Talk to a friend, family member, or therapist about your
+                                            anger.
+                                            Sharing your feelings with others can provide perspective and support.<br>
+
+                                            9.Practice Forgiveness: Consider forgiving the person or situation that
+                                            triggered
+                                            your anger. This doesn't mean condoning the behavior, but it can help you
+                                            release negative emotions.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check4">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="/static/images/worry.jpg" class="card-img-top" height=300"
+                                            width="300">
+                                        <h4>Worry</h4>
+                                        (2 min)
+                                    </div>
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check5" style="background-color: black;">
+                                    <p>
+                                        Dealing with worry can be challenging, but there are strategies you can use to
+                                        manage your worries and ease your mind. Here's a "rescue session" plan for
+                                        handling worries:<br>
+
+                                        1.Acknowledge Your Worries: Recognize and accept that you're feeling worried.
+                                        It's
+                                        okay to experience this emotion, and acknowledging it is the first step toward
+                                        managing it.<br>
+
+                                        2.Identify the Source: Pinpoint the specific cause of your worries.
+                                        Understanding
+                                        what's triggering your worry can help you address it more effectively.<br>
+
+                                        3.Stay Present: Practice mindfulness to stay focused on the present moment.
+                                        Worries often stem from concerns about the future, so grounding yourself in the
+                                        present can help reduce anxiety.<br>
+
+                                    </p>
+                                    <div class="content5">
+                                        <p>
+                                            4.Limit Worry Time: Set aside a designated time each day to focus on your
+                                            worries.
+                                            During this time, allow yourself to think about your concerns, but avoid
+                                            ruminating outside of this designated period.<br>
+
+                                            5.Problem-Solving: If your worries are related to a specific issue, engage
+                                            in
+                                            problem-solving. Break the problem down into manageable steps and consider
+                                            possible solutions.<br>
+
+                                            6.Positive Self-Talk: Challenge negative or catastrophic thoughts with more
+                                            balanced and rational thinking. Replace worry-driven thoughts with positive
+                                            affirmations.<br>
+
+                                            7.Journaling: Write down your worries in a journal. This can help you
+                                            organize
+                                            your thoughts and gain a better perspective on your concerns.<br>
+
+                                            8.Deep Breathing: Practice deep breathing exercises to calm your nervous
+                                            system.
+                                            Inhale deeply for a count of four, hold for a count of four, and exhale for
+                                            a
+                                            count of four.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check5">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <img src="/static/images/fear.png" class="card-img-top" height=300" width="300">
+                                        <h4>Fear</h4>
+                                        (2 min)
+                                    </div>
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check6" style="background-color: black;">
+                                    <p>
+                                        Dealing with fear is an important aspect of emotional well-being. Here's a
+                                        "rescue session" plan for managing fear:<br>
+
+                                        1.Recognize Your Fear: Acknowledge that you're feeling fearful. Recognizing and
+                                        labeling your emotions can help you address them more effectively.<br>
+
+                                        2.Deep Breathing: Practice deep breathing exercises to help calm your nervous
+                                        system. Inhale deeply for a count of four, hold for a count of four, and exhale
+                                        for a count of four.<br>
+
+                                        3.Ground Yourself: Use grounding techniques to stay present and connected to your
+                                        surroundings. Name five things you can see, four things you can touch, three
+                                        things you can hear, two things you can smell, and one thing you can taste.<br>
+
+                                        4.Challenge Negative Thoughts: Identify and challenge negative thoughts that
+                                        contribute to your fear. Ask yourself if your fears are based on reality or
+                                        assumptions.<br>
+
+
+                                    </p>
+                                    <div class="content6">
+                                        <p>
+                                            5.Educate Yourself: Sometimes, fear arises from the unknown. Educate yourself
+                                            about what you're afraid of to gain a better understanding and perspective.<br>
+    
+                                            6.Positive Self-Talk: Replace fearful self-talk with positive affirmations. Remind
+                                            yourself of your strengths and past successes.<br>
+    
+                                            7.Visualize a Positive Outcome: Imagine a positive outcome to the situation that's
+                                            causing your fear. Visualizing success can help reduce anxiety.<br>
+    
+                                            8.Break Down the Fear: If your fear seems overwhelming, break it down into
+                                            smaller, manageable steps. Focus on taking one step at a time.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check6">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

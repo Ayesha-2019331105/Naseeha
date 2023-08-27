@@ -170,3 +170,21 @@ def hos_dept_wise_doc(request):
         'doc': doc,
     }
     return render(request, "hospital_department_wise_doctor/dept_wise_doctor.html", context)
+
+    return render(request, "createpdf/reportinfo.html")
+
+
+@csrf_exempt
+def add_history(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+        patient = Patient.objects.get(email=email)
+        story = request.POST.get('yourself')
+        problems = request.POST.get('problems')
+        sports = request.POST.get('sports')
+        hobby = request.POST.get('freetime')
+        history = f"story\n{story}\nproblems\n{problems}\nInterest\n{sports}\n{hobby}\n"
+        patient.history = history
+        patient.save()
+        return redirect('user_profile')
+    return redirect('user_profile')

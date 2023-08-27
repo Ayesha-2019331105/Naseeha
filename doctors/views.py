@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from .models import *
 # Create your views here.
 from hospital.models import *
+from interactions.models import *
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -54,3 +55,25 @@ def handle_doctor_edit_profile(request):
 
 def patientlist(request):
     return render(request, "doctordetails/patientlist.html")
+
+
+def reports(request):
+    doc = doctor_info.objects.get(
+        email=request.session['cur_user'].get('email'))
+    apnt = appointment.objects.filter(doctor=doc)
+    Patient = [appointment.patient for appointment in apnt]
+    user = []
+    for p in Patient:
+        user.append({
+            'name': p.username,
+            'email': p.email,
+            'history': p.history,
+            'age': p.age,
+            'blood_group': p.blood_group,
+            'address': p.address,
+            'phone_number': p.phone_number
+        })
+    context = {
+        p['email']: p for p in user
+    }
+    return render(request, 'reportsReq.html', {'context': context})

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="icon" href="/static/image/therapy.png" type="image/png">
+    <title>Report</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter';
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            background: white;
+            padding: 60px;
+            width: 550px;
+            max-width: calc(100%-60px);
+        }
+
+        .form-element {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        .form-element label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            border: 1px solid #d0d2e2;
+            line-height: 2;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <form action="/createpdf/" method="post">
+        {% csrf_token %}
+        <h4 class="text-center"><b>Report</b></h4>
+
+        <div class="form-element">
+            <label>Doctor name:</label>
+            <input type="text" name="doc_name" value="{{request.session.cur_user.name}}" required readonly />
+        </div>
+
+        <div class="form-element">
+            <label>Doctor email:</label>
+            <input type="email" name="doc_email" value="{{request.session.cur_user.email}}" required readonly />
+        </div>
+
+        <div class="form-element">
+            <label>Patient ID:</label>
+            <input type="number" name="pid" value='{{myP.pid}}' required readonly />
+        </div>
+
+        <div class="form-element">
+            <label>Patient Name:</label>
+            <input type="text" name="name" value="{{myP.name}}" required readonly />
+        </div>
+
+        <div class="form-element">
+            <label>Patient story:</label>
+            {% for i in myP.story %}
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;{{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="form-element">
+            <label>Medicine name:</label>
+            <input type="text" name="med_name" placeholder="Enter medicine name" required />
+        </div>
+
+        <div class="form-element">
+            <label>Medicine Quantity per day:</label>
+            <input type="integer" name="med_quantity_per_day" placeholder="Enter medicine quantity per day" required />
+        </div>
+
+        <div class="form-element">
+            <label>Duration:</label>
+            <input type="text" name="duration" placeholder="Enter medicine duration" required />
+        </div>
+
+        <div class="form-element">
+            <label>Medicine frequency:</label>
+            <input type="text" name="med_frequency" placeholder="Enter medicine frequency" required />
+        </div>
+
+        <div class="form-element">
+            <label>Medical test:</label>
+            <input type="text" name="med_test" placeholder="Enter medical test" required />
+        </div>
+
+        <div class="form-element">
+            <label>Instruction:</label>
+            <textarea id="instruction" name="instruction" required></textarea>
+        </div>
+
+
+        <button type="button" class="btn btn-primary" style="width: 100px;">back</button>
+        <button class="btn btn-primary m-2" type="submit"> Report</button>
+
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

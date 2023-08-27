@@ -29,6 +29,10 @@ def add_hospital(request):
     return render(request, 'add_hospital.html')
 
 
+def feedBack(request):
+    return render(request, "feedback.html")
+
+
 @csrf_exempt
 def logout(request):
     print('here')

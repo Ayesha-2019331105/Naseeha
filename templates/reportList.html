@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report List</title>
+</head>
+
+<body>
+    <h1>Report List</h1>
+
+    <ul>
+        {% for report in reports %}
+        <li>
+            <a href="{% if report.report_pdf %}{{ report.report_pdf.url }}{% endif %}" download>
+                {{ report.report_pdf }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

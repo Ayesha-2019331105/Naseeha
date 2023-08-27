@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from NASEEHA import settings
 from NASEEHA.views import *
 from doctors.views import *
 from hospital.views import *
 from interactions.views import *
 from chat.views import *
+from report.views import *
+from django.conf.urls.static import static
+
 urlpatterns = [
     # path('admin/', admin.site.urls, name='admin'),
     # naseeha
@@ -31,7 +35,8 @@ urlpatterns = [
     path('authenticate_userp/', authenticate_userp),
     path('logout/', logout, name='logout'),
     path("admin_profile/", admin_profile, name='admin_profile'),
-    path("add_hospital", add_hospital, name='add_hospital'),
+    path("add_hospital/", add_hospital, name='add_hospital'),
+    path("feedback/", feedBack),
 
 
     # hospital
@@ -45,6 +50,7 @@ urlpatterns = [
     path("hospital/", hospital, name="hospital"),
     path("hospitaldetails/", hospitaldetails, name="hospitaldetails"),
     path("department_doctor/", hos_dept_wise_doc, name="hos_dept_wise_doc"),
+    path("add_history/", add_history, name="history"),
 
     # doctor
     path("doctorBase/", doctorBase),
@@ -53,6 +59,8 @@ urlpatterns = [
     path("handle_doctor_edit_profile/", handle_doctor_edit_profile,
          name='handle_doc_edit_profile'),
     path("patientlist/", patientlist, name='patientlist'),
+    path("reports/", reports, name='reports'),
+
 
     # interactions
     path("req_appointment/", request_appointment, name='req_appointment'),
@@ -66,4 +74,9 @@ urlpatterns = [
     path("send_chat/", send_chat, name='sendMessages'),
     path("chatHome/", chatIndividual, name='eachUserChat'),
 
-]
+    # report
+    path("createpdf/", pdf_report_create, name="createpdf"),
+    path("reportinfo/", report_info, name="reportinfo"),
+    path("reportList/", report_list, name="reportlist"),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
