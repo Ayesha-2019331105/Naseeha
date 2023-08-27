@@ -14,18 +14,23 @@
             {% csrf_token %}
             <form class="d-flex">
                 <ul class="navbar-nav mb-auto me-2 mb-lg-0">
+                    {% if request.session.cur_user.role %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/hospital">Services</a>
+                        <a class="nav-link active" aria-current="page" href="/hospital">Hospital</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/service_free">Tips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/edit_profile">Profile</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/doctor_edit_profile">Profile</a>
+                    </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/chat">Chat</a>
-                    </li>
-                    <li class="nav-item">
-                        {% if request.session.cur_user.role %}
-                        <a class="nav-link active" aria-current="page" href="/edit_profile">Profile</a>
-                        {% else %}
-                        <a class="nav-link active" aria-current="page" href="/doctor_edit_profile">Profile</a>
-                        {% endif %}
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/login">Logout</a>

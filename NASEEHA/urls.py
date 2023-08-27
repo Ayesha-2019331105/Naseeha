@@ -37,6 +37,11 @@ urlpatterns = [
     path("admin_profile/", admin_profile, name='admin_profile'),
     path("add_hospital/", add_hospital, name='add_hospital'),
     path("feedback/", feedBack),
+    path("service_free/", service_free, name="service_free"),
+    path("roughday/", roughday, name="roughday"),
+    path("category_service/", category_service, name="category_service"),
+    path("naturaltherapy/", naturaltherapy, name="naturaltherapy"),
+    path("card_choose/", card_choose, name="card_choose"),
 
 
     # hospital
@@ -66,6 +71,7 @@ urlpatterns = [
     path("req_appointment/", request_appointment, name='req_appointment'),
     path("appointment_details/", appointment_details, name='appointment_details'),
     path("update_appointment/", update_appointment, name='update_appointment'),
+    path("save_review/", save_feedback, name='ratings'),
 
 
     # chat

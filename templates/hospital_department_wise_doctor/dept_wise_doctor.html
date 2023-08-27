@@ -30,17 +30,23 @@
                                     <label>Hotline:&nbsp; </label><span>{{i.phone_number}}</span><br>
                                     <!-- <Label>Rating:&nbsp; </Label><span>i.rating</span><br> -->
                                 </p>
+                                <p>
+                                    <Label>Rating:&nbsp; </Label><span>{{ feedback }}</span><br>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-1">
+                {% if request.session.cur_user.isAdmin %}
+                {% else %}
                 <div class="card">
                     <a href="/req_appointment?pid={{ request.session.cur_user.email }}&did={{ i.email }}">
                         <button style="height: 75px; width: 75px;"><img src="/static/image/appointment.jpg"
                                 class="card-img-top" alt="..." height="75px" width="75px" /></button></a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>

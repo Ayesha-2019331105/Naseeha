@@ -30,7 +30,16 @@ def add_hospital(request):
 
 
 def feedBack(request):
-    return render(request, "feedback.html")
+    p = Patient.objects.get(email=request.session['cur_user'].get('email'))
+    apnt = appointment.objects.filter(patient=p)
+    patient_doctors = [appointment.doctor for appointment in apnt]
+    request.session['doc_email'] = [
+        doctor.email for doctor in patient_doctors]
+    request.session['doctors'] = [
+        doctor.username for doctor in patient_doctors]
+    ratings = range(1, 6)
+
+    return render(request, "feedback.html", {'ratings': ratings})
 
 
 @csrf_exempt
@@ -52,6 +61,7 @@ def logout(request):
                 email=request.session['cur_user'].get('email'))
             cur_user.login_status = 'offline'
             cur_user.save()
+        request.session['cur_user'] = {}
     return redirect('login')
 
 
@@ -75,7 +85,14 @@ def authenticate_userp(request):
                     cur_user.save()
                     print("login successfull")
                     if (cur_user.is_superuser):
-                        return redirect('admin_profile')
+                        request.session['cur_user'] = {
+                            'email': cur_user.email,
+                            'password': cur_user.password,
+                            'login_status': 'online',
+                            'isAdmin': True,
+                        }
+                        hospital = Hospital_Information.objects.all()
+                        return render(request, 'admin_user.html', {'hospital': hospital})
                     if (item.role == 1):
                         cur_user = Patient.objects.get(email=item.email)
                         request.session['cur_user'] = {
@@ -87,6 +104,7 @@ def authenticate_userp(request):
                             'address': cur_user.address,
                             'name': cur_user.name,
                             'login_status': 'online',
+                            'isAdmin': False,
                         }
                         cur_user.login_status = 'online'
                         cur_user.save()
@@ -109,6 +127,7 @@ def authenticate_userp(request):
                             'designation': cur_user.designation,
                             'work_place': cur_user.work_place,
                             'dob': cur_user.dob,
+                            'isAdmin': False,
                         }
                         request.session['cur_doc'] = request.session['cur_user']
                         cur_user.login_status = 'online'
@@ -212,3 +231,24 @@ def chatHome(request):
         request.session['chat_heads'] = [
             doctor.username for doctor in patient_doctors]
     return render(request, 'chatfrontend/chat.html', {'toUser': patient_doctors})
+
+
+def service_free(request):
+    return render(request, "service_free.html")
+
+
+def roughday(request):
+    return render(request, "roughday.html")
+
+
+def category_service(request):
+    return render(request, "category_service.html")
+
+
+def card_choose(request):
+    var = request.GET['var']
+    return render(request, "category_service.html", {'var': var})
+
+
+def naturaltherapy(request):
+    return render(request, "naturaltherapy.html")

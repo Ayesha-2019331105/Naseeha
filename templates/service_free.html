@@ -1,0 +1,267 @@
+<html>
+
+<head>
+
+    <title>Service</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="icon" href="/static/image/therapy.png" type="image/png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #292e39;
+            overflow: hidden;
+        }
+
+        .container-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container-sd {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container .text {
+            position: relative;
+            color: #72A0C1;
+            font-size: 25px;
+            font-weight: 400;
+
+        }
+
+        .container .text.first-text {
+            color: #F5F5F5;
+        }
+
+        .text.sec-text:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #292e39;
+            border-left: 2px solid #72A0C1;
+            animation: animate 6s steps(12) infinite;
+        }
+
+        .card-context {
+            border-radius: 20px;
+            height: 350px;
+            width: 400px;
+            margin-right: 20px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            ;
+            /* display: none; */
+        }
+
+        .card-sd {
+            background-color: #fddde6;
+            border-radius: 20px;
+            height: 350px;
+            width: 800px;
+            margin-right: 20px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            ;
+            /* display: none; */
+        }
+
+        @keyframes animate {
+
+            40%,
+            60% {
+                left: 100%;
+            }
+
+            100% {
+                left: 0%;
+            }
+        }
+
+        /* .custom_carousel {
+            display: block;
+        } */
+    </style>
+
+</head>
+
+<body>
+    {% if request.session.cur_user %}
+    {% include "all_profile_header.html" %}
+    {% else %}
+    {% include "header.html" %}
+    {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <div class="row">
+        <div class="container">
+            <span class="text first-text">
+                <h4>Breaking &nbsp;</h4>
+            </span>
+            <span class="text sec-text">
+                <h4>the stigma.. Mental health is health.</h4>
+            </span>
+        </div>
+    </div>
+
+    <!-- <div class="custom_carousel" id="myCarousel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active "
+                    style="background-color: black;" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    style="background-color: black;" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    style="background-color: black;" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/static/images/baek.jpg" class="d-block w-100" alt="..." height="400" width="600">
+                    <div class="carousel-caption d-none d-md-block " style="color: black;">
+                        <h5>“Just one small positive thought in the morning can change your whole day.”</h5>
+                        <p>— Dalai Lama</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/images/carousel1.jpg" class="d-block w-100" alt="..." height="400" width="600">
+                    <div class="carousel-caption d-none d-md-block" style="color: black;">
+                        <h5>“Opportunities don't happen, you create them.” </h5>
+                        <p>— Chris Grosser</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/images/carousel4.jpg" class="d-block w-100" alt="..." height="400" width="600">
+                    <div class="carousel-caption d-none d-md-block" style="color: black;">
+                        <h5>“Alone we can do so little, together we can do so much.”</h5>
+                        <p>— Helen Keller</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div> -->
+
+    {% block start %}
+
+    {% endblock %}
+
+    <div class="row py-2" style="background-color: #B9D9EB;">
+        <h5 class="text-center">How are you feeling today?</h5>
+        <div class="container-card">
+            <div class="card" id="happy">
+
+                <button style="height: 75px; width: 75px;"><img src="/static/images/happy.png" class="card-img-top"
+                        alt="..." height="75px" width="75px"></button>
+                <span class="text-center">
+                    <a href="/card_choose?var=happy">
+                        <h5>happy</h5>
+                    </a>
+                </span>
+            </div>
+
+            <div class="card" id='sad'>
+                <button style="height: 75px; width: 75px;"><img src="/static/images/sad.png" class="card-img-top"
+                        alt="..." height="75px" width="75px"></button>
+                <span class="text-center">
+                    <a href="/card_choose?var=sad">
+                        <h5>sad</h5>
+                    </a>
+                </span>
+            </div>
+
+            <div class="card" id='scared'>
+                <button style="height: 75px; width: 75px;"><img src="/static/images/scared.png" class="card-img-top"
+                        alt="..." height="75px" width="75px"></button>
+                <span class="text-center">
+                    <a href="/card_choose?var=scared">
+                        <h5>scared</h5>
+                    </a>
+                </span>
+            </div>
+
+            <div class="card" id='angry'>
+                <button href="" style="height: 75px; width: 75px;"><img src="/static/images/angry.png"
+                        class="card-img-top" alt="..." height="75px" width="75px"></button>
+                <span class="text-center">
+                    <a href="/card_choose?var=angry">
+                        <h5>angry</h5>
+                    </a>
+                </span>
+            </div>
+
+            <div class="card" id='bored'>
+                <button style="height: 75px; width: 75px;"><img src="/static/images/bored.png" class="card-img-top"
+                        alt="..." height="75px" width="75px"></button>
+                <span class="text-center">
+                    <a href="/card_choose?var=bored">
+                        <h5>bored</h5>
+                    </a>
+                </span>
+            </div>
+
+            <div class="card" id="'tired">
+                <button style="height: 75px; width: 75px;"><img src="/static/images/tired.png" class="card-img-top"
+                        alt="..." height="75px" width="75px"></button>
+                <span class="text-center">
+                    <a href="/card_choose?var=tired">
+                        <h5>tired</h5>
+                    </a>
+                </span>
+            </div>
+
+        </div>
+    </div>
+    <!-- <script>
+        const carousel = document.getElementById('myCarousel');
+        const happycard = document.getElementById('happycard');
+        const anxiety = document.getElementById('anxiety');
+        const roughday = document.getElementById('roughday');
+        const happy = document.getElementById('happy');
+        const anx = document.getElementById('scared');
+        const rough = document.getElementById('sad');
+
+        anx.addEventListener('click', function () {
+            carousel.style.display = 'none';
+            anxiety.style.display = 'block';
+            roughday.style.display = 'none';
+            happycard.style.display = 'none';
+        })
+    </script> -->
+</body>
+
+</html>

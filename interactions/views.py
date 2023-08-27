@@ -3,6 +3,7 @@ from .models import *
 from doctors.models import *
 from hospital.models import *
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -54,3 +55,20 @@ def update_appointment(request):
         print(apnt)
         return redirect('doctor_profile')
     return redirect('doctor_profile')
+
+
+@csrf_exempt
+def save_feedback(request):
+    if request.method == "POST":
+        doc_email = request.session['doc_email']
+        print(doc_email, "mail")
+        doctor = doctor_info.objects.get(
+            email__in=doc_email, username=request.POST['doc_name'])
+        p = Patient.objects.get(email=request.session['cur_user'].get('email'))
+        feedback = review.objects.create(
+            doctor=doctor,
+            patient=p,
+            title=str(request.POST['ratings']),
+            message=request.POST['feedback_text'],
+        )
+    return redirect('user_profile')

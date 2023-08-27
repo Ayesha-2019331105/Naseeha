@@ -116,16 +116,12 @@
         <div class="row">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column text-center align-items-center p-1 py-5"><img
-                        class="container-fluid mt-5 mb-2" src="/static/images/baek.jpg">
-                    <span class="font-weight-bold">Edogaru</span><span
-                        class="text-black-50">edogaru@mail.com.my</span><br>
+                        class="container-fluid mt-5 mb-2" src="/static/image/therapist.jpg">
+                    <span class="font-weight-bold">Admin</span><span class="text-black-50">admin@admin.com</span><br>
                     <div class="text-right">
                         <div class="list-group dashboard-menu">
                             <a href="/add_hospital" class="list-group-item list-group-item-action add-hospital">
                                 Add Hospital
-                            </a>
-                            <a href="" class="list-group-item list-group-item-action assign-doctor">
-                                Assign Doctor
                             </a>
                         </div>
                     </div>
@@ -140,12 +136,13 @@
                     </div>
 
                     <div class="box-container">
-                        {% for i in "0123456789" %}
+                        {% for i in hospital %}
                         <div class="box">
-                            <img src="/static/images/baek.jpg" class="card-img-top" alt="..." height="200" width="300">
-
+                            {% with url="/static/image/"|add:i.email|add:".jpg" %}
+                            <img src="{{url}}" class="card-img-top" alt="..." height="200" width="300">
+                            {% endwith %}
                             <div class="mb-5 d-flex justify-content-around">
-                                <a href="#" class="card-link">Click here</a>
+                                <a href="/hospitaldetails?name={{i.name}}" class="card-link">{{i.name}}</a>
                             </div>
                         </div>
                         {% endfor %}

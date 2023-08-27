@@ -145,10 +145,12 @@ def hospitaldetails(request):
     dept = hospital_department.objects.filter(hospital=h_info)
     doc = doctor_info.objects.filter(
         work_place=h_info, department_name__in=dept)
+    user = UserP.objects.get(email=request.session['cur_user'].get('email'))
     context = {
         'h_info': h_info,
         'dept': dept,
         'doc': doc,
+        'isAdmin': user.is_superuser,
     }
     return render(request, "hospitaldetails.html", context)
 
@@ -163,11 +165,28 @@ def hos_dept_wise_doc(request):
     print(dept1)
     doc = doctor_info.objects.filter(
         work_place=h_info, department_name=dept1)
+    feedback = {}
+    average_rating = 0
+    for d in doc:
+        f = review.objects.filter(doctor=d)
+        tot = 0
+        n = len(f)
+        print(f, n)
+        if n > 0:
+            for ff in f:
+                rating = int(ff.title)
+                tot += rating
+            average_rating = tot / n
+        else:
+            average_rating = 0
+        feedback[d.email] = average_rating
+        print(average_rating)
     context = {
         'h_info': h_info,
         'dept': dept,
         'dept1': dept1,
         'doc': doc,
+        'feedback': feedback,
     }
     return render(request, "hospital_department_wise_doctor/dept_wise_doctor.html", context)
 

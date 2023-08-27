@@ -1,0 +1,284 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <title>Naseeha</title>
+    <style>
+        #check {
+            display: none;
+        }
+
+        .content {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        label {
+            margin-top: 10px;
+            display: inline-block;
+            color: black;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #check:checked~.content {
+            display: block;
+        }
+
+        #check:checked~label {
+            visibility: hidden;
+        }
+
+        #check:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+
+        #check1 {
+            display: none;
+        }
+
+        .content1 {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        #check1:checked~.content1 {
+            display: block;
+        }
+
+        #check1:checked~label {
+            visibility: hidden;
+        }
+
+        #check1:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+
+        #check2 {
+            display: none;
+        }
+
+        .content2 {
+            display: none;
+            transition: 0.5s linear;
+        }
+
+        #check2:checked~.content2 {
+            display: block;
+        }
+
+        #check2:checked~label {
+            visibility: hidden;
+        }
+
+        #check2:checked~label:after {
+            content: 'Show less';
+            display: block;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body style="overflow-y: scroll; background-color: #B9D9EB;">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Content -->
+    <div class="homepage"
+        style="display: flex; justify-content: center; align-items: flex-start; background-color: B9D9EB;">
+        <h1 class="animation-text" style="font-size: 2rem; animation: bounce 2s infinite; margin-top: 50px;">
+            Inspirational Story
+        </h1>
+    </div>
+
+    <!-- Animation CSS -->
+    <style>
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="row py-5">
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <img src="/static/images/water.png" class="card-img-top" height="300" width="200">
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check" style="background-color: black;">
+                                    <p>
+                                        Once upon a time in a famous American University, A professor of psychology
+                                        walked around on a stage while teaching stress management principles to an
+                                        auditorium filled with students. As she raised a glass of water, everyone
+                                        expected they’d be asked the typical “Glass is half empty or the glass is half
+                                        full?” question. Instead, to the surprise of everyone, the professor asked with
+                                        a smile on her face, “How heavy is this glass of water I’m holding?”
+                                        Students shouted out answers ranging from eight ounces to a couple pounds.<br>
+                                        She replied, “From my perspective, the absolute weight of this glass doesn’t
+                                        matter. It all depends on how long I hold it. If I hold it for a minute or two,
+                                        it’s fairly light. If I hold it for an hour straight, its weight might make my
+                                        arm ache a little. If I hold it for a day straight, my arm will likely cramp up
+                                        and feel completely numb and paralyzed, forcing me to drop the glass to the
+                                        floor. In each case, the weight of the glass doesn’t change, but the longer I
+                                        hold it, the heavier it feels to me.”<br>
+                                    </p>
+                                    <div class="content">
+                                        <p>
+                                            She replied, “From my perspective, the absolute weight of this glass doesn’t
+                                            matter. It all depends on how long I hold it. If I hold it for a minute or
+                                            two, it’s fairly light. If I hold it for an hour straight, its weight might
+                                            make my arm ache a little. If I hold it for a day straight, my arm will
+                                            likely cramp up and feel completely numb and paralyzed, forcing me to drop
+                                            the glass to the floor. In each case, the weight of the glass doesn’t
+                                            change, but the longer I hold it, the heavier it feels to me.”<br>
+                                            As the class shook their heads in agreement, she continued, “Your stresses,
+                                            anxieties and worries in life are very much like this glass of water. Think
+                                            about them for a short time and everything is fine. Think about them for a
+                                            longer period of time and you will begin to feel uncomfortable. If you go
+                                            for holding a little longer period than this and you begin to ache a little.
+                                            Think about them all day long, and you will feel completely numb and
+                                            paralyzed — incapable of doing anything or moving forward , else until you
+                                            drop them.”<br>
+                                            <b>Moral of the story:&nbsp;</b>It’s important to remember to let go of your
+                                            stresses, anxieties and worries. No matter what happens during the day, as
+                                            early in the evening as you can, put all your burdens down. Don’t carry them
+                                            through the night and into the next day with you. If you still feel the
+                                            weight of yesterday’s stress, it’s a strong sign that it’s time to put the
+                                            glass down.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <img src="/static/images/blackballoon.jpg" class="card-img-top" height="400"
+                                        width="300">
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check1" style="background-color: black;">
+                                    <p>
+                                        There was a man who made his living selling balloons at a beach. He was center
+                                        of attraction for the small kids, who were coming to beach along with their
+                                        families to spend the quality time. The balloon seller used to sell balloons of
+                                        many different colors, including red, yellow, blue, orange, pink, violet and
+                                        green. He knew how well the different colors attract the children.<br>
+
+                                        Whenever the business used to get slow, he had a wonderful strategy to boost his
+                                        sales. What the balloon seller used to do is to release a helium-filled balloon
+                                        into the air. When the children saw the colorful balloon go up, they all wanted
+                                        one. They would come up to him with parents, buy a balloon and his sales would
+                                        go up. All day, he continued to release a balloon whenever sales were slow.<br>
+
+                                        One day, when his balloon sales were low, he adopted the same strategy. He
+                                        released a helium-filled blue colored balloon into the air. As expected, the
+                                        balloon man felt someone tugging at his jacket. He turned around and found a
+                                        little boy smiling towards him.<br>
+
+                                    </p>
+                                    <div class="content1">
+                                        <p>
+                                            The balloon seller asked him, “Which color balloon do you want?” The
+                                            innocent little boy looked towards helium-filled balloon into the air and
+                                            asked with a curiosity , “If you release a black balloon, will that also
+                                            fly?” Moved by the cute little boy’s concern, the balloon man replied
+                                            gently, “My dear son, it is not the color of the balloon, it is what’s
+                                            inside that makes it go up.”<br>
+
+                                            <b>Moral of the story:&nbsp;</b>If you try to analyze and correlate this
+                                            short story, the same principle
+                                            applies to our lives: It’s what’s inside that counts. Your inner beliefs,
+                                            core values and principles, personality, character and attitude which
+                                            defines how successful you will be in life.<br>
+                                        </p>
+                                    </div>
+                                    <label for="check1">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-2">
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <img src="/static/images/elephant.jpg" class="card-img-top" height="300"
+                                        width="300">
+                                </div>
+                                <div class="col-md-8 py-5">
+                                    <input type="checkbox" id="check2" style="background-color: black;">
+                                    <p>
+                                        As a man was passing the elephants, he suddenly stopped, confused by the fact
+                                        that these huge creatures were being held by only a small rope tied to their
+                                        front leg. No chains, no cages. It was obvious that the elephants could, at any
+                                        time, break away from their bonds but for some reason, they did not.
+
+                                        He saw a trainer nearby and asked why these animals just stood there and made no
+                                        attempt to get away. “Well,” trainer said, “when they are very young and much
+                                        smaller we use the same size rope to tie them and, at that age, it’s enough to
+                                        hold them. As they grow up, they are conditioned to believe they cannot break
+                                        away. They believe the rope can still hold them, so they never try to break
+                                        free.”
+
+                                        The man was amazed. These animals could at any time break free from their bonds
+                                        but because they believed they couldn’t, they were stuck right where they
+                                        were.<br>
+
+
+                                    </p>
+                                    <div class="content2">
+                                        <p>
+                                            How often are we like the elephants in the story? How often do we have
+                                            mental ropes around our legs that are holding us back from trying?
+
+                                            Sometimes it stems from having been told we can’t do something or being told
+                                            we aren’t capable of something. Other times it comes from stems from having
+                                            tried once and failed at something and now we are convinced that we just
+                                            can’t do it. All we see is that rope around our leg holding us in place.
+
+                                            What we BELIEVE about ourselves is the MOST POWERFUL thing in this world. We
+                                            have a choice to believe. We can make the decision to break free from any
+                                            perceived ropes that have been holding us back and go for the things we
+                                            actually want. We just have to choose to believe!<br>
+                                        </p>
+                                    </div>
+                                    <label for="check2">Read More</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

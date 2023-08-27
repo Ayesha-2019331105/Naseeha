@@ -56,21 +56,29 @@
 <body>
 
 
-    <form action="" method="post" style="padding: 30px; margin-top: 100px;">
+    <form action="/save_review/" method="post" style="padding: 30px; margin-top: 100px;">
+        {% csrf_token %}
         <div class="col-md-12"><label class="labels">Doctor Name:</label>
             <div class="form-control">
                 <div class="dropdown">
                     <select id="department" name="doc_name" required>
-                        <!-- {% for i in doc_info %} -->
-                        <!-- <option value='{{i.name}}' name="doc_name" required>{{i.name}}</option> -->
-                        <!-- {% endfor %} -->
+                        {% for i in request.session.doctors %}
+                        <option value='{{i}}' name="doc_name" required>{{i}}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
         </div>
-        <div class="form-element">
-            <label>Rating:</label>
-            <input type="integer" name="rating" required />
+        <div class="col-md-12"><label class="labels">Ratings:</label>
+            <div class="form-control">
+                <div class="dropdown">
+                    <select id="department" name="ratings" required>
+                        {% for i in ratings %}
+                        <option value='{{i}}' name="ratings" required>{{i}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
         </div>
         <div class="form-element">
             <label>Give feedback:</label>
