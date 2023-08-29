@@ -11,7 +11,7 @@
             {% csrf_token %}
             <div class="row mt-3 mb-3">
                 <div class="col-md-12">
-                    <form action="" method="post">
+                    <form action="/update_appointment/" method="post">
                         <table class="container">
                             <tr>
                                 <th>AID</th>
@@ -27,7 +27,7 @@
                             </tr>
                             {% for i in apnt %}
                             <tr>
-                                <td><input name="aid" style="width: 20px;" required readonly
+                                <td><input id="aid" name="aid" style="width: 20px;" required readonly
                                         value="{{i.appointment_id}}" />
                                 </td>
                                 <td><input name="pid" style="width: 30px;" required readonly
@@ -38,7 +38,7 @@
                                         value="{{i.patient.age }}" /></td>
                                 <td> <input name="p_email" style="width: 250px;" required readonly
                                         value="{{i.patient.email}}" /> </td>
-                                <td> <input type="text" name="sl" style="width: 30px;" required readonly
+                                <td> <input type="text" name="sl" style="width: 30px;" required
                                         value="{{i.serial_number}}" />
                                 </td>
                                 {% if i.appointment_date %}
@@ -48,15 +48,23 @@
                                 <td><input type="date" style="width: 5rem;" name="date" required /></td>
                                 {% endif %}
                                 {% if i.appointment_time %}
-                                <td><input type="text" style="width: 5rem;" name="time" required readonly
+                                <td><input id="time" type="text" style="width: 5rem;" name="time" required readonly
                                         value="{{i.appointment_time}}" />
                                 </td>
                                 {% else %}
-                                <td><input type="time" style="width: 5rem;" name="time" required /></td>
+                                <td><input id="time" type="time" style="width: 5rem;" name="time" required /></td>
                                 {% endif %}
-                                <td><input name="status" style="width: 5rem;" required
-                                        value="{{i.appointment_status}}" />
+                                <td>
+                                    <div class="dropdown">
+                                        <select id="status" name="status" required>
+                                            <option value='Pending' name="status" required>Pending</option>
+                                            <option value='Confirm' name="status" required>Confirm</option>
+                                        </select>
+                                    </div>
                                 </td>
+                                <!-- <td><input name="status" style="width: 5rem;" required readonly
+                                        value="{{i.appointment_status}}" />
+                                </td> -->
                             </tr>
                             {% endfor %}
                         </table>
@@ -67,5 +75,15 @@
         </form>
     </div>
 </div>
+
+<script>
+    document.getElementById( "Confirm" ).addEventListener( "click", function ()
+    {
+        var timeValue = document.getElementById( "time" ).value;
+        var sl = document.getElementById( "sl" ).value;
+        var aid = document.getElementById( "aid" ).value;
+        window.location.href = "/update_appointment?time=" + timeValue + "&sl=" + sl + "&aid=" + aid;
+    } );
+</script>
 
 {% endblock %}

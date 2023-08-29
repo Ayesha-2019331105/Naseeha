@@ -1,24 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report List</title>
+
+    <style>
+        body {
+            font-family: 'Inter';
+            background: #eee;
+            display: flex;
+
+            /* align-items: center; */
+            justify-content: center;
+        }
+
+        tr {
+            height: 35px;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Report List</h1>
+    <div class="row">
+        <div class="py-5">
+            <h2 class="text-center"><b>All Reports</b></h2>
+        </div>
 
-    <ul>
-        {% for report in reports %}
-        <li>
-            <a href="{% if report.report_pdf %}{{ report.report_pdf.url }}{% endif %}" download>
-                {{ report.report_pdf }}
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+        <table border="1" style="width: 1000px;">
+            <tr>
+                <th>Doctor Name</th>
+                <th>Doctor Email</th>
+                <th>Download Report</th>
+            </tr>
+
+            {% for report in reports %}
+            <tr>
+                <td>{{ report.doc_id.name }}</td>
+                <td>{{ report.doc_id.email }}</td>
+                <td> <a href="{% if report.report_pdf %}{{ report.report_pdf.url }}{% endif %}" download>
+                        {{ report.report_pdf }}
+                    </a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="btn btn-primary m-2" href="/user_profile/">Back</a>
+    </div>
+
 </body>
 
 </html>

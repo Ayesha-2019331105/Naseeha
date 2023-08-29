@@ -68,6 +68,7 @@ def pdf_report_create(request):
         template_path = 'createpdf/reportpdf.html'
 
         response = HttpResponse(content_type='application/pdf')
+        report_pdf_name = f"report_{pid}.pdf"
 
         response['Content-Disposition'] = 'attachment; filename="report.pdf"'
 
@@ -86,7 +87,6 @@ def pdf_report_create(request):
             return HttpResponse('We had some errors <pre>' + html + '</pre>')
 
         # Save the PDF content into the report_pdf field
-        report_pdf_name = f"report_{pid}.pdf"
         # Choose an appropriate filename
         report.report_pdf.save(
             report_pdf_name, ContentFile(pdf_buffer.getvalue()))

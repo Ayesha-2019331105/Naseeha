@@ -30,9 +30,9 @@
                                     <label>Hotline:&nbsp; </label><span>{{i.phone_number}}</span><br>
                                     <!-- <Label>Rating:&nbsp; </Label><span>i.rating</span><br> -->
                                 </p>
-                                <p>
-                                    <Label>Rating:&nbsp; </Label><span>{{ feedback }}</span><br>
-                                </p>
+                                <!-- <p>
+                                    <Label>Rating:&nbsp; </Label><span>{{ random_rating }}</span><br>
+                                </p> -->
                             </div>
                         </div>
                     </div>
@@ -41,10 +41,26 @@
             <div class="col-md-1">
                 {% if request.session.cur_user.isAdmin %}
                 {% else %}
-                <div class="card">
-                    <a href="/req_appointment?pid={{ request.session.cur_user.email }}&did={{ i.email }}">
-                        <button style="height: 75px; width: 75px;"><img src="/static/image/appointment.jpg"
-                                class="card-img-top" alt="..." height="75px" width="75px" /></button></a>
+                <div class="accordion-item" style="width: 200px;">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Appointment
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <form action="/req_appointment/" method="post">
+                            {% csrf_token %}
+                            <div class="accordion-body">
+                                <input name="email" type="text" readonly value="{{i.email}}">
+                                <input name="date" type="date" id="future-date-input" min="" />
+                            </div>
+                            <div>
+                                <button type="submit">OK</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 {% endif %}
             </div>
@@ -52,5 +68,14 @@
     </div>
     {% endfor %}
 </div>
+<script>
+    const futureDateInput = document.getElementById( 'future-date-input' );
+
+    // Get the current date in yyyy-mm-dd format
+    const currentDate = new Date().toISOString().split( 'T' )[ 0 ];
+
+    // Set the min attribute to the current date
+    futureDateInput.min = currentDate;
+</script>
 
 {% endblock %}

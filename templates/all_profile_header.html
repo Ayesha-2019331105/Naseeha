@@ -1,5 +1,9 @@
 {% load static %}
 <script src="https://kit.fontawesome.com/35ed77b010.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+
 <nav class="navbar navbar-expand-lg navbar-dark text-light" style="background-color: #292e39;">
     <div class="container-fluid">
         <i class='fas fa-heartbeat' style='font-size:36px;color:white'></i>
@@ -21,12 +25,26 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/service_free">Tips</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/edit_profile">Profile</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            {{ request.session.cur_user.username }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/edit_profile">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="/user_profile">Profile</a></li>
+                        </ul>
                     </li>
                     {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/doctor_edit_profile">Profile</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            {{ request.session.cur_user.username }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/doctor_edit_profile">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="/doctor_profile">Profile</a></li>
+                        </ul>
                     </li>
                     {% endif %}
                     <li class="nav-item">

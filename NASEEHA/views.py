@@ -22,7 +22,8 @@ def login_user(request):
 
 
 def admin_profile(request):
-    return render(request, 'admin_user.html')
+    hospitals = Hospital_Information.objects.all()
+    return render(request, 'admin_user.html', {'hospital', hospitals})
 
 
 def add_hospital(request):

@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import redirect, render
 # from django.contrib.auth import login,logout,authenticate
 # from django.contrib.auth.models import User
@@ -111,7 +112,7 @@ def save_hospital(request):
                 vip_cabin_no=request.POST.get("vip_cabin_no"),
             )
             hospital1.save()
-            request.session['cur_hospital'] = request.POST.get('name')
+            request.session['cur_hospital'] = Hospital_Information.objects.all()
             print(request.session['cur_hospital'])
             return redirect('assign_dept')
     return redirect('admin_profile')
@@ -165,8 +166,10 @@ def hos_dept_wise_doc(request):
     print(dept1)
     doc = doctor_info.objects.filter(
         work_place=h_info, department_name=dept1)
-    feedback = {}
+    feedback = []
     average_rating = 0
+    i = 0
+    random_rating = random.randint(0, 5)
     for d in doc:
         f = review.objects.filter(doctor=d)
         tot = 0
@@ -179,18 +182,17 @@ def hos_dept_wise_doc(request):
             average_rating = tot / n
         else:
             average_rating = 0
-        feedback[d.email] = average_rating
+        feedback.append(average_rating)
+        i += 1
         print(average_rating)
     context = {
         'h_info': h_info,
         'dept': dept,
         'dept1': dept1,
         'doc': doc,
-        'feedback': feedback,
+        'feedback': random_rating,
     }
     return render(request, "hospital_department_wise_doctor/dept_wise_doctor.html", context)
-
-    return render(request, "createpdf/reportinfo.html")
 
 
 @csrf_exempt

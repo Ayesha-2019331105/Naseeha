@@ -9,146 +9,120 @@
     <title>Signup</title>
     <style>
         body {
-            /* padding: 20px; */
-            /* background: linear-gradient(to bottom, #93A5CF, #E4EfE9); */
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: white;
+            background: linear-gradient(to bottom, #93A5CF, #E4EfE9);
+            margin: 0;
+            padding: 0;
         }
 
-        .btn_sign {
-            background-color: #292e39;
-            width: 25%;
-            padding: 15px;
-            color: white;
-            border: none;
-            /* float: center; */
-            font-size: 15px;
+        .fullscreen-image {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            /* background-image: url("bg.jpeg"); */
         }
 
-        label {
-            font-size: 20px;
+        .fullscreen-image img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
         }
 
-        .signupForm {
-            /* border: 3px solid #f1f1f1; */
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-size: 3rem;
             text-align: center;
-            background-color: rgb(red, green, blue, 0.1);
         }
 
-        input[type='email'],
-        input[type='number'],
-        input[type='password'],
-        input[type='text'] {
-            width: 40%;
-            font-size: 15px;
-            margin: 8px 0px;
-            padding: 10px 20px;
-            display: inline-block;
-            border: 2px solid #292e39;
-            box-sizing: border-box;
+        .pad-top {
+            padding-top: 10px;
         }
 
-        input[type='radio'] {
-            height: 18px;
-            width: 18px;
-        }
-
-        button:hover {
-            opacity: 0.7;
-        }
-
-        .container {
-            padding: 40px;
-            background-color: rgb(red, green, blue, 0.1);
-        }
-
-        .imgcontainer {
-            text-align: center;
-            margin: 12px 0 6px 0;
+        .content {
+            background: linear-gradient(to bottom, #93A5CF, #E4EfE9);
         }
 
         .footer {
             position: relative;
-            bottom: 0%;
+            bottom: 0;
             text-align: center;
             width: 100%;
         }
     </style>
 </head>
 
-<body>
+
+<body class="content">
     {% include "header.html" %}
-    <div class="container right-align">
-        <!-- <div class="loginForm"> -->
-        <div class="card" style="width: 800px; height: 800px; margin-left: 250px;"
-            style="background-color: rgb(red, green, blue, 0.1);">
-            <img src="/static/image/ocean.jpg" class="card-img-top" alt="loginuser" height="200">
-            <!-- <div class="card-body"> -->
+    <div style="font-family: Arial, sans-serif; background: linear-gradient(to bottom, #93A5CF, #E4EfE9); 
+    margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh;">
+        <div
+            style="background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); display: flex; overflow: hidden; width: 80%; max-width: 1000px;">
 
-            <form class="signupForm" action="#" method="post">
-                {% csrf_token %}
-                <!-- <center> -->
-                <!-- <div class="container"> -->
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username:</label>
-                    <input type="text" class="form-control" placeholder="Enter your username" id="exampleInputEmail1"
-                        name="username" aria-describedby="emailHelp" required />
-                </div>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Age:</label>
-                    <input type="number" class="form-control" placeholder="Enter your age" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" name="age" required />
-                </div>
 
-                <div class="mb-3">
-                    <label for="gender"><b>Gender : </b></label>
-                    <input type="radio" name="gender" value="male" required />
-                    <label><b>Male</b></label>
-                    <input type="radio" name="gender" value="female" required />
-                    <label><b>Female</b></label>
-                </div>
+            <div
+                style="flex: 1; padding: 20px; display: flex; flex-direction: column; justify-content: center; height: 600px;">
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Address:</label>
-                    <input type="text" class="form-control" placeholder="Enter your address" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" name="address" required />
-                </div>
+                <h2 style="margin-bottom: 20px;">Signup</h2>
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email:</label>
-                    <input type="email" class="form-control" placeholder="Enter your email" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" name="email" required />
-                </div>
+                <form class="signupForm" action="#" method="post" style="display: flex; flex-direction: column;">
+                    {% csrf_token %}
+                    <input type="text" placeholder="username" name="username" class="form-control" required
+                        style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;" />
 
-                <div class="mb-3">
-                    <label for="password"><b>Password : </b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required /><br />
-                </div>
+                    <input type="number" placeholder="Age" name="age" class="form-control" required
+                        style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;" />
 
-                <div class="mb-3">
-                    <label for="role"><b>Role : </b></label>
-                    <input type="radio" name="role" value="patient" required />
-                    <label><b>Patient</b></label>
-                    <input type="radio" name="role" value="therapist" required />
-                    <label><b>Therapist</b></label>
-                </div>
+                    <div class="mb-3">
+                        <label for="gender">Gender : </label>
+                        <input type="radio" name="gender" value="male" required />
+                        <label>Male</label>
+                        <input type="radio" name="gender" value="female" required />
+                        <label>Female</label>
+                    </div>
 
-                <button class="btn_sign" type="submit"><b>Signup</b></button><br />
-                Already have an account? <a href="/login/"> Login </a>
-                <!-- </div> -->
-                <!-- </center> -->
-            </form>
-            <!-- </div> -->
+                    <input type="text" placeholder="Address" name="address" class="form-control" required
+                        style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;" />
+
+                    <input type="email" placeholder="Email" name="email" class="form-control" required
+                        style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;" />
+
+                    <input type="password" name="password" class="form-control" placeholder="password" required
+                        style="padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;" />
+
+                    <div class="mb-3">
+                        <label for="role">Role : </label>
+                        <input type="radio" name="role" value="patient" required />
+                        <label>Patient</label>
+                        <input type="radio" name="role" value="therapist" required />
+                        <label>Therapist</label>
+                    </div>
+
+                    <button class="btn_sign" type="submit" style="padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;"><b>Signup</b></button><br />
+                    Already have an account? <a href="/login/"> Login </a>
+
+                </form>
+
+            </div>
+
+            <div
+                style="flex: 1; background-image: url('https://img.freepik.com/premium-vector/new-user-online-registration-sign-up-concept-tiny-characters-signing-up-huge-smartphone-with-secure-password-login-account-mobile-app-web-access-cartoon-people-vector-illustration_87771-11429.jpg'); background-size: cover; background-position: center; height: 500px;">
+            </div>
+
         </div>
-        <!-- </div> -->
+
     </div>
-    <footer class="footer" style="background-color: black;color: white;">
+    <!-- <footer class="footer" style="background-color: black;color: white;">
         <p>
         <h4>All Rights Reserved &copy; Bottles</h4>
         </p>
-    </footer>
-    <!-- {% include "footer.html" %} -->
+    </footer> -->
 </body>
 
 </html>
