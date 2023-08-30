@@ -23,7 +23,7 @@
                         <a class="nav-link active" aria-current="page" href="/hospital">Hospital</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/service_free">Tips</a>
+                        <a class="nav-link active" aria-current="page" href="/service_free">Free Tips</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -62,25 +62,22 @@
 </nav>
 
 <script>
-    function logout ()
-    {
+    function logout() {
         // Perform any additional actions or API calls if needed
 
         // Send a POST request to the custom_logout view
-        fetch( '/logout/', {
+        fetch('/logout/', {
             method: 'POST',
             headers: {
                 'X-CSRFToken': '{% csrf_token %}' // Replace with your actual CSRF token
             }
-        } )
-            .then( response =>
-            {
+        })
+            .then(response => {
                 // Handle response or redirect
                 window.location.href = '/login/';  // Redirect to the homepage
-            } )
-            .catch( error =>
-            {
-                console.error( 'Error during logout:', error );
-            } );
+            })
+            .catch(error => {
+                console.error('Error during logout:', error);
+            });
     }
 </script>
