@@ -3,8 +3,8 @@
 **Motivation:** Maya app. <br>
 **Basic features:** <br> 
 **Information:** (Each sort of user will have an account and will be able to see the information that pertains to them.) <br>
- 	 	- Admin – Name, contact, address. 
- 	 	- Therapist– Name, designation, contact, address, experience, expertise, salary. 
+ 	 	- Admin – Name, contact, address.<br> 
+ 	 	- Therapist– Name, designation, contact, address, experience, expertise, salary.<br> 
  	 	- patient – Name, Contact, address, gender, age.<br> 
 **Chat With Experts:** People looking for counseling can contact experts via live chats.<br>
 **Topics of discussion:** A dashboard with the most popular themes will be available; anyone can look at these topics to receive a quick overview of our activity.<br>
