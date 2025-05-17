@@ -2,7 +2,7 @@
 **Idea:** It will be a reputable website where people may seek and give advice. Admin, people looking for psychological treatment or assistance, and doctors or counselors are the three main sorts of users. Our goal in creating this website is to promote mental health in society. <br>
 **Motivation:** Maya app. <br>
 **Basic features:** <br> 
-**Information:** (Each sort of user will have an account and will be able to see the information that pertains to them.) 
+**Information:** (Each sort of user will have an account and will be able to see the information that pertains to them.) <br>
  	 	- Admin – Name, contact, address. 
  	 	- Therapist– Name, designation, contact, address, experience, expertise, salary. 
  	 	- patient – Name, Contact, address, gender, age.<br> 
