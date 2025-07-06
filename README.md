@@ -9,4 +9,4 @@
 **Chat With Experts:** People looking for counseling can contact experts via live chats.<br>
 **Topics of discussion:** A dashboard with the most popular themes will be available; anyone can look at these topics to receive a quick overview of our activity.<br>
 **Rating:** Patients can give feedbacks and it will be added on therapist profile as their rating. <br>
-**Platform:** Python(backend), MySQL workbench (to handle database), HTML, CSS.<br>
+**Platform:** Django(backend), MySQL workbench (to handle database), HTML, CSS.<br>
