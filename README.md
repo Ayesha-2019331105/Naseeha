@@ -1,4 +1,5 @@
-# Naseeha
+# ( Database Management Lab Project )
+## Naseeha
 **Idea:** It will be a reputable website where people may seek and give advice. Admin, people looking for psychological treatment or assistance, and doctors or counselors are the three main sorts of users. Our goal in creating this website is to promote mental health in society. <br>
 **Motivation:** Maya app. <br>
 **Basic features:** <br> 
